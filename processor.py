@@ -47,14 +47,27 @@ class ContentProcessor:
         "": "code",
     }
     
-    def __init__(self, summarize_code: bool = True):
+    def __init__(
+        self,
+        summarize_code: bool = True,
+        use_llm: bool = False,
+        llm_summarizer=None,
+        force_resummarize: bool = False
+    ):
         """
         Initialize the processor.
         
         Args:
             summarize_code: If True, summarize code blocks. If False, skip them entirely.
+            use_llm: If True, use LLM for code summarization (requires llm_summarizer).
+            llm_summarizer: CodeSummarizer instance for LLM-based summarization.
+            force_resummarize: If True, ignore cache and regenerate all summaries.
         """
         self.summarize_code = summarize_code
+        self.use_llm = use_llm
+        self.llm_summarizer = llm_summarizer
+        self.force_resummarize = force_resummarize
+        self._current_context = ""  # Set during processing for LLM context
     
     def process(self, html_content: str, day: int, title: str, date: str) -> ProcessedArticle:
         """
@@ -69,6 +82,10 @@ class ContentProcessor:
         Returns:
             ProcessedArticle with cleaned text
         """
+        # Set context for LLM summarization
+        clean_title = re.sub(r"^Day\s+\d+:\s*", "", title)
+        self._current_context = clean_title
+        
         soup = BeautifulSoup(html_content, "html.parser")
         
         # Remove unwanted elements
@@ -178,6 +195,34 @@ class ContentProcessor:
             lang_name = self.LANGUAGE_NAMES.get(language.lower(), language or "code")
             return f"[{lang_name} code example - see the article for details]"
         
+        # Use LLM summarizer if available
+        if self.use_llm and self.llm_summarizer:
+            try:
+                summary = self.llm_summarizer.summarize(
+                    code=code_text,
+                    language=language,
+                    context=self._current_context,
+                    force_refresh=self.force_resummarize
+                )
+                return summary
+            except Exception as e:
+                print(f"    Warning: LLM summarization failed, using fallback: {e}")
+                # Fall through to rule-based summarization
+        
+        # Fallback: Rule-based summarization
+        return self._rule_based_summary(code_text, language)
+    
+    def _rule_based_summary(self, code_text: str, language: str) -> str:
+        """
+        Create a rule-based summary of code (fallback when LLM is not available).
+        
+        Args:
+            code_text: The actual code
+            language: Detected programming language
+            
+        Returns:
+            A basic spoken description of what the code does
+        """
         # Get friendly language name
         lang_name = self.LANGUAGE_NAMES.get(language.lower(), language or "code")
         

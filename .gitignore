@@ -20,6 +20,9 @@ output/text/*.txt
 models/piper/*.onnx
 models/piper/*.json
 
+# LLM code summary cache
+cache/
+
 # Generation stats
 output/generation_stats.json
 

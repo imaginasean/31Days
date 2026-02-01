@@ -15,7 +15,9 @@ Usage:
     python main.py --day 7                   # Generate specific day only
     python main.py --scrape-only             # Only scrape and process, no audio
     python main.py --from-cache              # Use cached text files (skip scraping)
-    python main.py --engine piper --voice ryan  # Use Piper with specific voice
+    python main.py --engine piper --voice amy # Use Piper with specific voice
+    python main.py --use-llm                 # Use Claude for code block summaries
+    python main.py --use-llm --resummarize   # Re-generate all code summaries
 """
 
 import argparse
@@ -267,6 +269,16 @@ def main():
         action="store_true",
         help="List available voices for the selected engine and exit"
     )
+    parser.add_argument(
+        "--use-llm",
+        action="store_true",
+        help="Use LLM (Claude) to generate detailed code block summaries"
+    )
+    parser.add_argument(
+        "--resummarize",
+        action="store_true",
+        help="Force re-summarization of code blocks (ignore cache)"
+    )
     
     args = parser.parse_args()
     
@@ -311,7 +323,31 @@ def main():
     
     # Initialize components
     scraper = VibeCodingScraper(delay=args.delay)
-    processor = ContentProcessor(summarize_code=True)
+    
+    # Initialize LLM summarizer if requested
+    llm_summarizer = None
+    if args.use_llm:
+        try:
+            from code_summarizer import CodeSummarizer
+            if not os.environ.get("ANTHROPIC_API_KEY"):
+                print("\n✗ Error: ANTHROPIC_API_KEY not set")
+                print("  Set it in .env file to use --use-llm")
+                sys.exit(1)
+            llm_summarizer = CodeSummarizer()
+            print("LLM Summarization: ENABLED")
+            if args.resummarize:
+                print("  (forcing re-summarization, ignoring cache)")
+        except ImportError as e:
+            print(f"\n✗ Error: Could not load CodeSummarizer: {e}")
+            print("  Make sure anthropic is installed: pip install anthropic")
+            sys.exit(1)
+    
+    processor = ContentProcessor(
+        summarize_code=True,
+        use_llm=args.use_llm,
+        llm_summarizer=llm_summarizer,
+        force_resummarize=args.resummarize
+    )
     
     # Create the appropriate generator based on engine choice
     def create_generator():
@@ -387,6 +423,15 @@ def main():
         stats_path = "output/generation_stats.json"
         stats.save(stats_path)
         print(f"\nStats saved to: {stats_path}")
+    
+    # Print LLM summarization stats if used
+    if args.use_llm and llm_summarizer:
+        llm_stats = llm_summarizer.get_stats()
+        print(f"\nLLM Code Summarization:")
+        print(f"  API calls: {llm_stats['api_calls']}")
+        print(f"  Cache hits: {llm_stats['cache_hits']}")
+        print(f"  Errors: {llm_stats['errors']}")
+        print(f"  Cache size: {llm_stats['cache_size']} summaries")
     
     print(f"\nText files: output/text/")
     print(f"Audio files: output/audio/")

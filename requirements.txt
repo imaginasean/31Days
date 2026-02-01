@@ -7,3 +7,6 @@ pydub>=0.25.1
 # For local TTS (optional - use --engine piper)
 # Note: piper-tts 1.3.0 works with Python 3.13, newer versions may have issues
 piper-tts==1.3.0
+
+# For LLM-powered code summarization (optional - use --use-llm)
+anthropic>=0.40.0
