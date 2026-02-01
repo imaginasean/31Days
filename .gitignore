@@ -12,7 +12,6 @@ venv/
 ENV/
 
 # Output files
-output/audio/*.mp3
 output/audio/*.wav
 output/audio/*.aiff
 output/text/*.txt
