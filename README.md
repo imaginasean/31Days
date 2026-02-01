@@ -19,8 +19,24 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Generate all episodes with Piper (free, local)
-python main.py --engine piper --from-cache
+# Install system dependencies (macOS)
+brew install espeak-ng ffmpeg
+
+# Generate all 31 episodes with Piper Amy voice (free, local)
+python main.py --engine piper --voice amy --from-cache
+```
+
+### Generate with Amy Voice (Recommended)
+
+```bash
+# Generate all episodes
+python main.py --engine piper --voice amy --from-cache
+
+# Generate a single day to test
+python main.py --engine piper --voice amy --from-cache --day 1
+
+# Generate in test mode (first 2 episodes only)
+python main.py --engine piper --voice amy --test
 ```
 
 ## Installation
@@ -85,8 +101,8 @@ cp .env.example .env
 ### Generate All Episodes
 
 ```bash
-# Using Piper (recommended for free generation)
-python main.py --engine piper --from-cache
+# Using Piper with Amy voice (recommended for free generation)
+python main.py --engine piper --voice amy --from-cache
 
 # Using ElevenLabs (requires API key)
 python main.py --engine elevenlabs --from-cache
@@ -98,12 +114,12 @@ python main.py --engine macos --from-cache
 ### Generate Specific Days
 
 ```bash
-# Generate only Day 1
-python main.py --engine piper --from-cache --day 1
+# Generate only Day 1 with Amy voice
+python main.py --engine piper --voice amy --from-cache --day 1
 
 # Generate Days 1-5 by running multiple times
 for i in {1..5}; do
-  python main.py --engine piper --from-cache --day $i
+  python main.py --engine piper --voice amy --from-cache --day $i
 done
 ```
 
@@ -111,7 +127,7 @@ done
 
 ```bash
 # Process only first 2 articles (for testing)
-python main.py --engine piper --test
+python main.py --engine piper --voice amy --test
 ```
 
 ### Choose a Voice
@@ -142,18 +158,18 @@ python main.py --scrape-only
 
 ### Piper Voices
 
-| Voice         | Description                       |
-| ------------- | --------------------------------- |
-| `amy`         | US English, female (default)      |
-| `arctic`      | US English, multiple speakers     |
-| `lessac`      | US English, neutral               |
-| `lessac-high` | US English, neutral, high quality |
-| `ryan`        | US English, male                  |
-| `ryan-high`   | US English, male, high quality    |
-| `kristin`     | US English, female                |
-| `libritts`    | US English, LibriTTS trained      |
-| `ljspeech`    | US English, LJSpeech trained      |
-| `danny`       | British English, male             |
+| Voice         | Description                          |
+| ------------- | ------------------------------------ |
+| `amy`         | US English, female **(recommended)** |
+| `arctic`      | US English, multiple speakers        |
+| `lessac`      | US English, neutral                  |
+| `lessac-high` | US English, neutral, high quality    |
+| `ryan`        | US English, male                     |
+| `ryan-high`   | US English, male, high quality       |
+| `kristin`     | US English, female                   |
+| `libritts`    | US English, LibriTTS trained         |
+| `ljspeech`    | US English, LJSpeech trained         |
+| `danny`       | British English, male                |
 
 ### ElevenLabs Voices
 
