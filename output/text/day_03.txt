@@ -1,8 +1,8 @@
 Title: Day 3: Keeping Your UI Consistent
 Day: 3
 Date: Jan 3, 2026
-Characters: 7969
-Words: 1297
+Characters: 7996
+Words: 1301
 ==================================================
 
 Welcome to Day 3 of 31 Days of Vibe Coding. Today's topic is: Keeping Your UI Consistent.
@@ -63,7 +63,7 @@ The Prompt Templates That Work
 
 Template 1: Building with Existing Components
 
-Showing a prompt template that instructs an AI to build a feature using only existing design system components, spacing patterns, and color tokens.
+Showing a prompt template that instructs an AI to build a feature using only existing design system components, tokens, and patterns.
 
 Template 2: Creating a New Component That Matches
 
@@ -75,17 +75,17 @@ Template 3: Auditing UI Against the Component Library
 
 You have existing UI that doesn’t match your design system. Ask AI to audit it.
 
-Showing a prompt template that instructs an AI to audit a component against a design system reference, checking for hard-coded values and inconsistent patterns.
+Showing a prompt template that asks an AI to review a component against a design system reference, checking for hardcoded values and inconsistent patterns.
 
 Real Example: Building a Dashboard
 
 I needed a dashboard with stats cards, a chart, and a recent activity list. Here’s what I asked:
 
-Showing a prompt template that instructs an AI to build a dashboard page using specific components and patterns from an existing design system.
+Showing a prompt that instructs an AI to build a dashboard page using existing design system components, with specific requirements for stat cards, charts, and activity lists.
 
 AI generated this:
 
-Showing a React dashboard component with stat cards displaying metrics like users and revenue, a chart placeholder, and a recent activity feed.
+Showing a React dashboard component with stat cards for users, revenue, conversion rate, and growth, plus placeholders for a revenue chart and activity feed.
 
 Perfect. Same card style as the rest of my app. Same spacing. Same typography. Same color usage for positive and negative metrics. Same layout pattern.
 

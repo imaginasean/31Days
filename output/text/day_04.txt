@@ -1,8 +1,8 @@
 Title: Day 4: Observability First - Know When AI Code Breaks
 Day: 4
 Date: Jan 4, 2026
-Characters: 11497
-Words: 1715
+Characters: 11567
+Words: 1724
 ==================================================
 
 Welcome to Day 4 of 31 Days of Vibe Coding. Today's topic is: Observability First - Know When AI Code Breaks.
@@ -53,7 +53,7 @@ Here’s how I do it now. Every feature requirement includes an observability se
 
 GitHub Issue Template:
 
-Showing a feature specification document outlining functional requirements for user authentication alongside detailed observability requirements for logging, metrics, tracing, and alerting.
+Showing a feature specification document for user authentication that includes both functional requirements and detailed observability requirements covering logging, metrics, tracing, and alerting.
 
 When observability is in the spec, AI includes it in the implementation plan. Not as an afterthought. As a first-class requirement.
 
@@ -103,11 +103,11 @@ The service tracks three signal types:
 
 Traces - Show the flow of auth operations with timing:
 
-Showing a telemetry service call that tracks a successful login event with the user's ID, email, IP address, and browser user agent.
+Showing a telemetry service call that tracks a successful login event with user details, IP address, and user agent information.
 
 Metrics - Quantify what’s happening:
 
-Showing code comments documenting that OpenTelemetry middleware auto-tracks metrics for auth events, API request duration, and database operation duration.
+Showing comments documenting OpenTelemetry middleware auto-tracking for auth events, API request duration, and database operation metrics.
 
 Logs - Provide context when things break:
 
@@ -119,15 +119,15 @@ Every authentication action gets tracked automatically. Not just the happy path.
 
 Registration:
 
-Showing JavaScript function calls that log authentication events for registration success, validation failure, and duplicate email scenarios.
+Showing function calls that log authentication events for registration success, validation failure, and duplicate email scenarios.
 
 Login:
 
-Showing authentication event logging calls for three scenarios: account locked, invalid password, and successful login.
+Showing JavaScript authentication logging calls that record different login outcomes: account locked, invalid password, and successful login.
 
 Password Reset:
 
-Showing three authentication logging calls that track password reset events: when requested, when a token fails validation, and when completed successfully.
+Showing three auth logging calls that track password reset events: when requested, when the token fails validation, and when completed successfully.
 
 Every event goes to two places:
 
@@ -139,7 +139,7 @@ Step 3: AI Added Automatic Middleware
 
 The telemetry service includes Express middleware that automatically tracks every API call:
 
-Showing Express middleware setup for telemetry that automatically tracks request metrics like URL, response time, status codes, and user data.
+Showing Express middleware setup for telemetry that automatically tracks request details like URL, method, response time, status code, and user information.
 
 No manual tracking needed. Every request to /api slash auth/login gets timed and recorded automatically.
 
@@ -147,7 +147,7 @@ Step 4: AI Monitored Database Operations
 
 Prisma middleware tracks every database query:
 
-Showing comments that document automatic database query tracking metrics including operation type, table name, duration, success status, and record count.
+Showing code comments that document automatic Prisma query tracking metrics including operation type, table name, duration, success status, and record count.
 
 This is where you catch the problems that would otherwise blindside you. Query times climbing from 12ms to 400ms over time? You’ll see the pattern before it becomes a production incident. Connection pool exhaustion? The metrics will show it happening gradually, not as a sudden outage.
 
@@ -201,11 +201,11 @@ Showing a prompt template that instructs an AI to build a feature with comprehen
 
 Template 2: Auditing Existing Code for Missing Observability
 
-Showing a prompt template that asks an AI to audit code for observability gaps and suggest specific logging, metrics, tracing, and alerting improvements.
+Showing a prompt template that instructs an AI to audit code for observability gaps and suggest specific logging, metrics, tracing, and alerting improvements.
 
 Template 3: Building the Observability Foundation
 
-Showing a prompt template that instructs an AI to build a comprehensive telemetry service using OpenTelemetry with traces, metrics, logs, and environment-specific exporters.
+Showing a prompt template that instructs an AI to build a telemetry service using OpenTelemetry with traces, metrics, logs, multiple exporters, and auto-instrumentation for Express and databases.
 
 Development vs Production
 
@@ -219,7 +219,7 @@ Everything prints to your terminal. You see every auth event, every API call, ev
 
 Production mode (credentials configured):
 
-Showing console output confirming OpenTelemetry initialization with traces, metrics, and logs all exporting to Dynatrace.
+Showing console output confirming OpenTelemetry initialization with traces, metrics, and logs all configured to export to Dynatrace.
 
 Everything goes to your observability platform. You get dashboards, alerts, query capabilities, long-term storage.
 
@@ -267,7 +267,7 @@ If you can’t see it locally, it won’t work in production.
 
 Pitfall 4: Using console dot log instead of structured logging
 
-Showing a comparison between a basic console log and a structured telemetry call that captures detailed context like user ID, email, failure reason, and IP address.
+Showing a comparison between a vague console dot log statement and a structured telemetry call that captures detailed error context including user ID, email, failure reason, and IP address.
 
 Structured logging lets you query, filter, and alert on specific fields. Console logs are just strings.
 

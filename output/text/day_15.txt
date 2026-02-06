@@ -1,8 +1,8 @@
 Title: Day 15: Context, Tokens, and When to Compact
 Day: 15
 Date: Jan 15, 2026
-Characters: 10441
-Words: 1582
+Characters: 10967
+Words: 1646
 ==================================================
 
 Welcome to Day 15 of 31 Days of Vibe Coding. Today's topic is: Context, Tokens, and When to Compact.
@@ -119,7 +119,7 @@ Manual Compacting
 
 If your AI tool doesn’t have automatic compacting, do it manually. Start a new conversation with a summary:
 
-A code example with 23 lines - see the article for details.
+Showing a structured session summary template for an AI assistant, documenting completed work, key decisions, current code state, and next steps for a card trading feature.
 
 This is manual compacting. You’ve distilled the essential context. AI starts fresh with everything it needs.
 
@@ -161,15 +161,15 @@ Reduce token usage to extend productive conversation length:
 
 Don’t paste entire files when you need specific sections:
 
-A code example with 4 lines - see the article for details.
+Showing a prompt formatting tip that suggests sharing only relevant code sections with line numbers instead of entire files.
 
 Reference files instead of pasting when AI has access:
 
-A code example with 2 lines - see the article for details.
+Showing an instruction to an AI assistant to read and modify a specific TypeScript file instead of pasting its contents directly.
 
 Summarize previous work instead of letting context accumulate:
 
-A code example with 2 lines - see the article for details.
+Showing a code comment contrasting AI inference from messages versus providing a direct summary of what's been built and where the model file is located.
 
 Remove resolved discussion:
 
@@ -205,13 +205,13 @@ Large files are context killers. A 1000-line file can use 5000+ tokens. Options:
 
 Paste only relevant sections:
 
-A code example with 4 lines - see the article for details.
+Showing a reference to authentication middleware code from a TypeScript file, with a placeholder for the relevant section and a note about the file's remaining contents.
 
 Let AI read files directly:
 
 In Claude Code and similar tools:
 
-A code example with 1 lines - see the article for details.
+Showing a prompt asking an AI to analyze an authentication middleware file and identify changes needed for multi-tenant support.
 
 AI reads the file on demand without clogging the conversation context.
 

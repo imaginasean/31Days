@@ -1,8 +1,8 @@
 Title: Day 5: The Prompting Pattern That Actually Works
 Day: 5
 Date: Jan 5, 2026
-Characters: 15754
-Words: 2446
+Characters: 16081
+Words: 2473
 ==================================================
 
 Welcome to Day 5 of 31 Days of Vibe Coding. Today's topic is: The Prompting Pattern That Actually Works.
@@ -45,13 +45,13 @@ Without context, AI makes assumptions. Usually wrong ones.
 
 Bad context:
 
-Showing a git commit message describing the addition of password reset functionality.
+Showing a git commit message for adding password reset functionality.
 
 AI has no idea what framework you’re using, how your auth system works, what database stores users, or what email service you have.
 
 Good context:
 
-Showing a system prompt describing a Node dot js slash Express API stack with PostgreSQL, JWT authentication, Resend email service, and OpenTelemetry observability.
+Showing a system context document describing a Node dot js slash Express API stack with PostgreSQL, JWT authentication, Resend for email, and OpenTelemetry for observability.
 
 Now AI knows your stack, your patterns, your file locations, and your existing services. It can write code that fits.
 
@@ -83,13 +83,13 @@ When AI understands intent, it makes better decisions about implementation. It a
 
 Bad intent:
 
-Showing a commit message that adds a password reset endpoint.
+Showing a git commit message for adding a password reset endpoint.
 
 AI will add an endpoint. Minimal. Functional. Missing everything that makes it production-ready.
 
 Good intent:
 
-Showing a plain-text requirements document describing the password reset feature with security, usability, and tracking considerations.
+Showing a requirements document describing the functional and security needs for a password reset feature.
 
 Now AI understands the full picture. Security matters. UX matters. Observability matters. It will include rate limiting without you asking because it understands someone could abuse the flow.
 
@@ -117,13 +117,13 @@ AI doesn’t know your constraints unless you tell it.
 
 Bad constraints (none specified):
 
-Showing a brief git commit message that adds password reset functionality.
+Showing a brief git commit message indicating a password reset feature was added.
 
 AI might create new database tables when you need to use existing ones. Might return different error formats than your API standard. Might use a library you don’t have installed.
 
 Good constraints:
 
-Showing a list of technical constraints for implementing a password reset feature, including token expiration rules, rate limits, and requirements to use existing database columns and services.
+Showing a constraints list for a password reset feature specifying token expiration, rate limiting, API response format, and requirements to use existing database columns and services.
 
 Now AI works within your boundaries. No surprise package installs. No schema migrations. No breaking API contracts.
 
@@ -155,13 +155,13 @@ If you have existing code that follows the pattern you want, reference it. AI le
 
 Bad examples (none provided):
 
-Showing a brief prompt instructing an AI to add password reset functionality using existing codebase patterns.
+Showing a brief prompt instructing an AI to implement password reset functionality using existing codebase patterns.
 
 AI doesn’t know your patterns.
 
 Good examples:
 
-Showing a prompt that instructs an AI to follow existing codebase patterns for authentication endpoints, including validation, error handling, logging, and email service conventions.
+Showing a prompt that instructs an AI to follow existing codebase patterns for authentication endpoints, validation, error handling, and email services.
 
 Now AI has concrete patterns to follow. Not just “make it look right” but “make it look like this specific code that already works.”
 
@@ -187,7 +187,7 @@ This part does two things. First, it tells AI what success looks like, which sha
 
 Bad verification (none specified):
 
-Showing a brief instruction or reminder text that simply says to make sure something works.
+Showing a brief instruction or reminder text that says "Make sure it works."
 
 Good verification:
 
@@ -217,7 +217,7 @@ The Complete Pattern in Action
 
 Here’s a real prompt using all five parts:
 
-Showing a detailed prompt or specification document for implementing a password reset feature in a Node dot js API, including context, constraints, and verification requirements.
+Showing a detailed prompt for an AI coding assistant that specifies context, intent, constraints, examples, and verification criteria for implementing a password reset feature.
 
 That’s a complete prompt. AI has everything it needs. No follow-up questions about the database schema. No confusion about error handling. No guessing at your patterns.
 
@@ -227,13 +227,13 @@ Let me show you the difference this pattern makes.
 
 Vague prompt:
 
-Showing a feature request or commit message describing the addition of a player name search functionality for cards.
+Showing a brief feature request or commit message for adding player name search functionality to a card system.
 
 What AI generates: A basic search endpoint that queries the database. No pagination. No fuzzy matching. No performance optimization. No error handling for empty results. No observability.
 
 Five-part prompt:
 
-A code example with 27 lines - see the article for details.
+Showing a structured prompt with context, intent, constraints, and verification sections for building a fuzzy card search API endpoint.
 
 What AI generates: A complete search endpoint with fuzzy matching, pagination, performance optimization using existing indexes, proper error handling, observability, and tests. Because it understood what you actually needed.
 
@@ -241,19 +241,19 @@ Prompt Templates You Can Use Today
 
 Template 1: Feature Implementation
 
-A code example with 14 lines - see the article for details.
+Showing a structured prompt template with sections for context, intent, constraints, examples, and verification when requesting code from an AI.
 
 Template 2: Bug Fix
 
-A code example with 14 lines - see the article for details.
+Showing a template for bug-fixing prompts with sections for context, intent, constraints, examples, and verification criteria.
 
 Template 3: Refactoring
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template structure for requesting code refactoring, with sections for context, intent, constraints, examples, and verification criteria.
 
 Template 4: Test Generation
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template structure for generating tests, with sections for context, intent, constraints, examples, and verification criteria.
 
 Common Mistakes
 

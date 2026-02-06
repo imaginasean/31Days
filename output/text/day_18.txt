@@ -1,8 +1,8 @@
 Title: Day 18: AI as Test Generator
 Day: 18
 Date: Jan 18, 2026
-Characters: 4094
-Words: 706
+Characters: 5464
+Words: 859
 ==================================================
 
 Welcome to Day 18 of 31 Days of Vibe Coding. Today's topic is: AI as Test Generator.
@@ -31,17 +31,17 @@ The Basic Test Generation Prompt
 
 Here’s the prompt that generates useful tests:
 
-A code example with 19 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate comprehensive test suites covering happy paths, edge cases, error handling, and security scenarios using a specified testing framework.
 
 A Real Example
 
 Here’s a function AI generated:
 
-A code example with 30 lines - see the article for details.
+Showing a TypeScript function that transfers card ownership between users after validating the card exists and belongs to the sender.
 
 Here’s what AI generated for tests:
 
-A code example with 100 lines - see the article for details.
+Showing JavaScript test cases for a card transfer function covering successful transfers, authorization errors, edge cases, and security validations like SQL injection prevention.
 
 Notice what AI caught: transfer to self, special characters, SQL injection attempts, empty strings. These are edge cases I might not have written manually.
 
@@ -49,25 +49,25 @@ The Edge Case Prompt
 
 When you want AI to dig deeper on edge cases:
 
-A code example with 18 lines - see the article for details.
+Showing a prompt template that asks an AI to generate edge case tests for a function, covering empty values, boundaries, type coercion, unicode, concurrency, timing issues, and resource limits.
 
 Integration Test Generation
 
 Unit tests verify functions. Integration tests verify flows:
 
-A code example with 19 lines - see the article for details.
+Showing a prompt template that requests AI-generated integration tests for a user flow, covering setup, execution, verification, failure scenarios, and cleanup with real database but mocked external services.
 
 API Endpoint Tests
 
 For REST APIs, be specific about what to test:
 
-A code example with 19 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate comprehensive API endpoint tests covering authentication, authorization, validation, error handling, and headers.
 
 The Test Pyramid Prompt
 
 Different levels of testing catch different problems:
 
-A code example with 22 lines - see the article for details.
+Showing a prompt template that asks an AI to create a test plan following the test pyramid methodology, requesting unit, integration, and end-to-end test examples for a given feature.
 
 When AI Tests Go Wrong
 
@@ -75,25 +75,25 @@ AI-generated tests have failure modes:
 
 Testing implementation, not behavior:
 
-A code example with 5 lines - see the article for details.
+Showing a comparison between testing implementation details versus testing behavior, with a mock database call assertion labeled as bad and a result value assertion labeled as good.
 
 Tautological tests:
 
-A code example with 5 lines - see the article for details.
+Showing a flawed JavaScript test that meaninglessly compares a result to itself, guaranteeing it always passes.
 
 Missing assertions:
 
-A code example with 5 lines - see the article for details.
+Showing a test case that retrieves a card but lacks any assertion, meaning it will pass even if the function is broken.
 
 Tell AI to avoid these:
 
-A code example with 5 lines - see the article for details.
+Showing a prompt instruction that specifies criteria for generating high-quality tests focused on behavior verification and meaningful assertions.
 
 Coverage-Focused Generation
 
 When you need to hit coverage targets:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that asks an AI to generate comprehensive tests for a code file, targeting 90% coverage across branches, error paths, and return statements.
 
 Testing AI Code vs Manual Code
 
@@ -107,7 +107,7 @@ Test Maintenance
 
 AI generates tests, but you maintain them. Make them maintainable:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate tests following specific quality guidelines, with placeholders for existing test patterns.
 
 Tomorrow
 

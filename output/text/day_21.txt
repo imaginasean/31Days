@@ -1,8 +1,8 @@
 Title: Day 21: AI as Architect
 Day: 21
 Date: Jan 21, 2026
-Characters: 5843
-Words: 921
+Characters: 6702
+Words: 1004
 ==================================================
 
 Welcome to Day 21 of 31 Days of Vibe Coding. Today's topic is: AI as Architect.
@@ -29,13 +29,13 @@ The Architecture Review Prompt
 
 Before starting anything significant:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template for getting AI feedback on a proposed feature approach, asking for evaluation of strengths, risks, and alternative approaches.
 
 A Real Architecture Review
 
 I was planning to add a notifications system. Here was my initial approach:
 
-A code example with 7 lines - see the article for details.
+Showing a feature proposal with bullet points describing a notifications system using database storage and polling.
 
 AI’s review:
 
@@ -105,37 +105,37 @@ The Tradeoff Analysis Prompt
 
 When you’re deciding between approaches:
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template that asks an AI to compare multiple technical approaches across complexity, performance, and scalability dimensions for different user scales.
 
 The “What Could Go Wrong” Prompt
 
 For risk analysis:
 
-A code example with 18 lines - see the article for details.
+Showing a prompt template that asks an AI to perform a pre-implementation risk assessment across technical, operational, security, and other dimensions.
 
 The Scalability Prompt
 
 When you need to think about growth:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze system architecture scalability, identifying bottlenecks and required changes for 10x and 100x growth.
 
 The Maintenance Prompt
 
 For long-term thinking:
 
-A code example with 13 lines - see the article for details.
+Showing a prompt template that asks an AI to evaluate a feature design for future maintainability concerns and suggest improvements.
 
 The Integration Analysis
 
 When your feature touches other systems:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template for analyzing how a new feature integrates with existing systems, covering data flows, failure modes, and contract ownership.
 
 The Migration Strategy Prompt
 
 When you’re changing something that exists:
 
-A code example with 13 lines - see the article for details.
+Showing a prompt template for designing system migration strategies, with placeholders for current and target states plus questions covering downtime, parallel operation, validation, and rollback planning.
 
 When to Ask for Architecture Help
 
@@ -149,7 +149,7 @@ Architecture Review Checklist
 
 Before starting significant work:
 
-A code example with 10 lines - see the article for details.
+Showing a checklist of architectural decision criteria covering problem definition, alternatives, tradeoffs, scalability, failure modes, and rollback planning.
 
 The Humbling Part
 

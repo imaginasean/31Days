@@ -1,8 +1,8 @@
 Title: Day 23: Asking AI for Edge Cases You'd Never Think Of
 Day: 23
 Date: Jan 23, 2026
-Characters: 4086
-Words: 684
+Characters: 5291
+Words: 831
 ==================================================
 
 Welcome to Day 23 of 31 Days of Vibe Coding. Today's topic is: Asking AI for Edge Cases You'd Never Think Of.
@@ -21,13 +21,13 @@ The Edge Case Generation Prompt
 
 For any function:
 
-A code example with 19 lines - see the article for details.
+Showing a prompt template that asks an AI to generate edge cases for testing code, with a checklist covering null inputs, boundary values, type issues, unicode, concurrency, and other potential failure scenarios.
 
 A Real Edge Case Analysis
 
 Here’s a simple function:
 
-A code example with 3 lines - see the article for details.
+Showing a TypeScript function that formats a user's full name by combining their first and last name.
 
 AI’s edge case analysis:
 
@@ -75,49 +75,49 @@ Prefixes slash suffixes leads to “Dr. John Smith Jr.”
 
 A better implementation:
 
-A code example with 15 lines - see the article for details.
+Showing a TypeScript function that formats a user's display name from their first and last name, falling back to email or "Unknown User" if unavailable.
 
 The Input Validation Prompt
 
 For API endpoints:
 
-A code example with 21 lines - see the article for details.
+Showing a prompt template that asks an AI to generate comprehensive test cases for API input validation, covering categories like missing fields, wrong types, injection attempts, and edge cases.
 
 The State Machine Prompt
 
 For features with multiple states:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze state transitions for a feature and identify invalid states, edge cases, and potential failure scenarios.
 
 Time and Date Edge Cases
 
 Time is always harder than you think:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze code for time-related edge cases, listing ten categories including timezone boundaries, daylight saving time, and the Unix timestamp overflow problem.
 
 Concurrency Edge Cases
 
 When multiple things happen at once:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze code for concurrency issues, listing specific scenarios like race conditions, deadlocks, and lost updates to check for.
 
 The Failure Mode Prompt
 
 For integrations and external dependencies:
 
-A code example with 18 lines - see the article for details.
+Showing a prompt template that systematically asks developers to analyze failure modes for each dependency, covering scenarios like downtime, slow responses, errors, and partial data.
 
 The User Behavior Prompt
 
 Users do unexpected things:
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze potential edge cases and unexpected user behaviors that could break a specific feature.
 
 The Data Volume Prompt
 
 Scale reveals edge cases:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template for analyzing system scalability, listing common bottlenecks like database queries, API limits, and memory constraints at various growth multipliers.
 
 Building Edge Cases Into Your Workflow
 
@@ -131,7 +131,7 @@ The Edge Case Checklist
 
 For any feature:
 
-A code example with 13 lines - see the article for details.
+Showing a checklist of edge cases and error conditions to consider when testing, including null values, boundary conditions, invalid inputs, and failure scenarios.
 
 Tomorrow
 

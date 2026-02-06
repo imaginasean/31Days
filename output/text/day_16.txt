@@ -1,8 +1,8 @@
 Title: Day 16: AI as Security Auditor
 Day: 16
 Date: Jan 16, 2026
-Characters: 5926
-Words: 966
+Characters: 7290
+Words: 1112
 ==================================================
 
 Welcome to Day 16 of 31 Days of Vibe Coding. Today's topic is: AI as Security Auditor.
@@ -31,7 +31,7 @@ The Security Audit Prompt
 
 Here’s the prompt that changed how I review AI-generated code:
 
-A code example with 23 lines - see the article for details.
+Showing a prompt template that instructs an AI to act as a security expert and conduct a comprehensive penetration test review of code, checking for ten specific vulnerability categories.
 
 The key phrase is “assuming the user is actively trying to break it.” This flips AI from construction mode to destruction mode.
 
@@ -39,7 +39,7 @@ A Real Audit
 
 Let me show you what this looks like. Here’s an endpoint AI generated for me:
 
-A code example with 13 lines - see the article for details.
+Showing an Express dot js API endpoint that retrieves a card by ID from the database, including its owner data.
 
 Looks fine, right? Card ID comes in, we look it up, we return it. Simple.
 
@@ -53,7 +53,7 @@ Exploit: Iterate through card IDs to harvest all cards in the system.
 
 Fix:
 
-A code example with 21 lines - see the article for details.
+Showing an Express API endpoint that retrieves a card by ID, but only if the user owns it or the card is public.
 
 Issue 2: Sensitive Data Exposure (Medium)
 
@@ -69,7 +69,7 @@ No rate limiting allows an attacker to enumerate all card IDs rapidly.
 
 Fix: Add rate limiting middleware:
 
-A code example with 5 lines - see the article for details.
+Showing an Express dot js API route for fetching a card by ID, protected with authentication middleware and rate limiting.
 
 Issue 4: Insufficient Logging (Low)
 
@@ -77,7 +77,7 @@ No logging of access attempts. If someone is enumerating cards, you won’t know
 
 Fix:
 
-A code example with 5 lines - see the article for details.
+Showing a telemetry call that tracks a card access event with the card ID, user ID, and IP address.
 
 Four issues in eight lines of code. All of them real. None of them obvious when you’re just checking if the feature works.
 
@@ -85,7 +85,7 @@ The OWASP Checklist Prompt
 
 For comprehensive coverage, I use OWASP categories as a framework:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to review code against all ten OWASP security vulnerability categories and identify specific issues.
 
 This systematic approach catches things the general prompt might miss.
 
@@ -93,19 +93,19 @@ Authentication-Specific Audits
 
 Authentication code needs extra scrutiny. Here’s my auth-specific prompt:
 
-A code example with 28 lines - see the article for details.
+Showing a security audit prompt template for reviewing authentication code, covering password handling, session management, brute force protection, password reset flows, and multi-factor authentication.
 
 API-Specific Audits
 
 APIs have their own vulnerability patterns:
 
-A code example with 27 lines - see the article for details.
+Showing a prompt template for auditing API endpoint security, covering input validation, authorization, output encoding, rate limiting, and CORS configuration.
 
 Database Query Audits
 
 Database interactions are injection hotspots:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that asks an AI to review database queries for SQL injection vulnerabilities, checking for parameterization issues and providing secure alternatives.
 
 The Multi-Pass Approach
 
@@ -113,19 +113,19 @@ One security pass isn’t enough. Different passes catch different issues.
 
 Pass 1: Injection and Input Handling
 
-A code example with 3 lines - see the article for details.
+Showing a code review prompt that instructs analysis of user input flow to identify potential injection vulnerabilities.
 
 Pass 2: Authentication and Authorization
 
-A code example with 3 lines - see the article for details.
+Showing a security review checklist prompting questions about access control, permissions, and potential bypasses for each operation.
 
 Pass 3: Data Exposure
 
-A code example with 3 lines - see the article for details.
+Showing a checklist of questions for reviewing data exposure points like API responses, error messages, and logs for sensitive information.
 
 Pass 4: Infrastructure and Configuration
 
-A code example with 3 lines - see the article for details.
+Showing a code review prompt that asks to focus specifically on deployment configuration issues like headers, CORS, cookies, TLS, and secrets management.
 
 Running four focused passes catches more than one broad pass.
 
@@ -167,7 +167,7 @@ Building Security Into Prompts
 
 Prevention beats detection. Include security requirements in your original prompts:
 
-A code example with 9 lines - see the article for details.
+Showing a prompt that instructs an AI to build a secure user registration endpoint with specific requirements for password hashing, rate limiting, and security considerations.
 
 When security is in the original prompt, AI builds it in rather than bolting it on.
 
@@ -175,7 +175,7 @@ The Security Checklist
 
 Before any AI-generated code goes to production, run through this:
 
-A code example with 10 lines - see the article for details.
+Showing a security checklist covering input validation, parameterized queries, authorization, data protection, password hashing, session management, rate limiting, logging, error handling, and dependency scanning.
 
 Tomorrow
 

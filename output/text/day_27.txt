@@ -1,8 +1,8 @@
 Title: Day 27: Building Your Prompt Library: Capture What Works
 Day: 27
 Date: Jan 27, 2026
-Characters: 4389
-Words: 711
+Characters: 5353
+Words: 801
 ==================================================
 
 Welcome to Day 27 of 31 Days of Vibe Coding. Today's topic is: Building Your Prompt Library: Capture What Works.
@@ -45,7 +45,7 @@ Library Structure
 
 I organize by task type:
 
-A code example with 23 lines - see the article for details.
+Showing a directory structure for organizing AI prompts by development task type, with folders for generation, review, debugging, refactoring, and deployment.
 
 Each file contains one prompt template with placeholders, an example, and variations.
 
@@ -53,7 +53,7 @@ Prompt Template Format
 
 Each saved prompt should have:
 
-A code example with 6 lines - see the article for details.
+Showing the beginning of a template document for generating REST API endpoints, with a "When to Use" section header.
 
 Generate a REST API endpoint.
 
@@ -93,7 +93,7 @@ Tests
 
 Follow the patterns in {reference_file}.
 
-A code example with 7 lines - see the article for details.
+Showing documentation sections for example usage and common variations like authentication, file uploads, and pagination handling.
 
 Building Your Library Incrementally
 
@@ -115,19 +115,19 @@ Here are the prompts I use most often:
 
 Feature Generation
 
-A code example with 24 lines - see the article for details.
+Showing a structured prompt template for requesting AI-generated feature implementations, with placeholders for tech stack, requirements, constraints, and expected deliverables.
 
 Test Generation
 
-A code example with 18 lines - see the article for details.
+Showing a prompt template for generating comprehensive tests with placeholders for code, framework, edge cases, error cases, and reference patterns.
 
 Code Review
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template for AI code review that takes a focus area, code block, and checklist as inputs and specifies a structured output format for reporting issues.
 
 Debug
 
-A code example with 16 lines - see the article for details.
+Showing a debugging prompt template that structures problem reports with symptom, expected behavior, context, and requests systematic diagnosis steps.
 
 Parameterizing Prompts
 
@@ -135,11 +135,11 @@ Good templates have clear placeholders:
 
 Bad:
 
-A code example with 2 lines - see the article for details.
+Showing a minimal two-line prompt asking an AI to generate code following existing patterns.
 
 Good:
 
-A code example with 8 lines - see the article for details.
+Showing a prompt template for generating a UI component, with placeholders for component type, purpose, props, state requirements, events, and a reference component to follow.
 
 Clear placeholders remind you what to fill in.
 
@@ -147,7 +147,7 @@ Prompt Composition
 
 Complex tasks combine multiple prompts:
 
-A code example with 27 lines - see the article for details.
+Showing a workflow document outlining a six-step prompt sequence for building complex features, from architecture review through security review.
 
 Version Controlling Your Prompts
 
@@ -179,7 +179,7 @@ Evolving Your Prompts
 
 Prompts need maintenance:
 
-A code example with 13 lines - see the article for details.
+Showing a markdown changelog that tracks iterative improvements to prompt templates, with dated entries noting what was added after specific failures.
 
 Track why prompts change. Learn from what didn’t work.
 

@@ -1,8 +1,8 @@
 Title: Day 11: Teaching AI Your Patterns With Examples
 Day: 11
 Date: Jan 11, 2026
-Characters: 6019
-Words: 983
+Characters: 7045
+Words: 1098
 ==================================================
 
 Welcome to Day 11 of 31 Days of Vibe Coding. Today's topic is: Teaching AI Your Patterns With Examples.
@@ -21,7 +21,7 @@ Generic Code vs Your Code
 
 Ask AI to build a service without any context, and you’ll get something like this:
 
-A code example with 11 lines - see the article for details.
+Showing a TypeScript UserService class with a method that queries a database for a user by ID and includes basic error handling.
 
 This code works. It’s also generic. Maybe you use dependency injection. Maybe you separate database operations into private methods. Maybe you have specific error handling that logs to your telemetry system instead of console.log. Maybe you validate inputs before querying.
 
@@ -29,7 +29,7 @@ AI doesn’t know any of that unless you tell it.
 
 You could describe your patterns in words:
 
-A code example with 5 lines - see the article for details.
+Showing a prompt or specification requesting a user service implementation with dependency injection, separated database operations, standard error handling with telemetry, and input validation.
 
 This is better than nothing. But “standard error handling pattern with telemetry” means different things to different developers. There’s interpretation. Room for AI to guess wrong.
 
@@ -41,7 +41,7 @@ Find a file in your codebase that represents your patterns well. Not average cod
 
 Then reference it explicitly:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt that instructs an AI to build a notification service by referencing and matching patterns from an existing user service file.
 
 Point to specific patterns if the file is long. AI can read the whole file but benefits from knowing what matters.
 
@@ -61,19 +61,19 @@ Different Types of References
 
 Service Structure
 
-A code example with 11 lines - see the article for details.
+Showing a prompt that asks an AI to create an order service by following patterns from an existing user service file.
 
 Route Patterns
 
-A code example with 14 lines - see the article for details.
+Showing instructions to add order routes to an Express server, referencing an existing users route file for patterns like auth middleware and error handling.
 
 Test Structure
 
-A code example with 16 lines - see the article for details.
+Showing a prompt that instructs an AI to write tests for an OrderService by copying the exact patterns from an existing UserService test file.
 
 Component Patterns
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template instructing an AI to build an OrderSummary component by referencing an existing UserProfile component's patterns for props, styling, loading states, and error handling.
 
 Making Your Best Code Easy to Reference
 
@@ -85,7 +85,7 @@ Keep them current. When patterns evolve, update reference files first. They’re
 
 Keep them discoverable. Mention them in CLAUDE.md:
 
-A code example with 8 lines - see the article for details.
+Showing a documentation snippet that lists reference files for code patterns across services, routes, components, and tests.
 
 Now AI knows where to look without you specifying each time.
 
@@ -93,21 +93,21 @@ The Pattern Library Approach
 
 Some teams create explicit pattern files that aren’t part of the running application. Just templates:
 
-A code example with 5 lines - see the article for details.
+Showing a directory structure with template files for services, routes, components, and tests that serve as patterns for code generation.
 
 These files include comments explaining the pattern:
 
-A code example with 39 lines - see the article for details.
+Showing a TypeScript service class template demonstrating patterns for dependency injection, input validation, private helper methods, and error logging with telemetry.
 
 Reference these in prompts:
 
-A code example with 1 lines - see the article for details.
+Showing a brief instruction to build a payment service following an existing service pattern file.
 
 When AI Misses the Pattern
 
 Sometimes AI reads the example but still misses something. Be specific about the mismatch:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt that asks an AI to refactor generated code to match an existing codebase pattern, with specific line references.
 
 Point to the specific mismatch. AI can fix targeted issues better than vague “make it match.”
 

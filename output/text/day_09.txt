@@ -1,8 +1,8 @@
 Title: Day 9: Git Is Your Undo Button for AI Mistakes
 Day: 9
 Date: Jan 9, 2026
-Characters: 8073
-Words: 1398
+Characters: 9202
+Words: 1516
 ==================================================
 
 Welcome to Day 9 of 31 Days of Vibe Coding. Today's topic is: Git Is Your Undo Button for AI Mistakes.
@@ -47,7 +47,7 @@ Here’s the discipline that saves you:
 
 1. Commit before asking AI to make changes
 
-A code example with 2 lines - see the article for details.
+Showing git commands that stage all changes and create a work-in-progress commit before making AI-assisted modifications to authentication code.
 
 Takes five seconds. Now you have a checkpoint.
 
@@ -61,7 +61,7 @@ Does it work? Does it do what you wanted?
 
 4a. If it works: commit the changes
 
-A code example with 2 lines - see the article for details.
+Showing git commands that stage all changes and commit them with a message about adding an email field to a user profile.
 
 Clean commit message describing what changed.
 
@@ -73,7 +73,7 @@ Option B: Reset and try again (if the problem is big)
 
 5. For reset: use git restore
 
-A code example with 1 lines - see the article for details.
+Showing a git command that discards all uncommitted changes in the current directory.
 
 You’re back to your pre-AI checkpoint. No damage. No lost work. Try a different approach.
 
@@ -81,7 +81,7 @@ Checkpoint Commits
 
 I use “WIP” (Work In Progress) commits as checkpoints. They’re not meant to be permanent. They’re save points.
 
-A code example with 3 lines - see the article for details.
+Showing git commands that create work-in-progress commits to save checkpoints before making significant changes like validation, refactoring, or AI-assisted caching.
 
 After the AI work is done and verified, I often squash these into cleaner commits. But during development, the checkpoints are invaluable.
 
@@ -91,15 +91,15 @@ Asking AI What Will Change
 
 Before letting AI make big changes, ask what it plans to modify:
 
-A code example with 2 lines - see the article for details.
+Showing a prompt that asks an AI to outline which files it plans to modify and explain its reasoning before making any actual changes.
 
 AI responds with something like:
 
-A code example with 9 lines - see the article for details.
+Showing a file checklist outlining backend changes to a user model, service, routes, and migration, plus frontend updates to a profile form and API service.
 
 Now you know the scope. If the list is bigger than expected, you can narrow it:
 
-A code example with 1 lines - see the article for details.
+Showing an instruction to only modify backend code while leaving frontend changes for later.
 
 Better to know before than discover after.
 
@@ -107,15 +107,15 @@ The “Show Me First” Pattern
 
 For risky changes, ask AI to show the code without applying it:
 
-A code example with 2 lines - see the article for details.
+Showing a prompt asking an AI assistant to preview proposed code changes to a JavaScript file before applying them.
 
 Claude shows you the proposed changes. You review. If it looks good:
 
-A code example with 1 lines - see the article for details.
+Showing a brief approval message instructing to apply previously suggested changes.
 
 If it looks wrong:
 
-A code example with 2 lines - see the article for details.
+Showing a follow-up prompt asking to limit code changes to only the createUser function and requesting the revised version.
 
 This costs a few extra messages but prevents the “AI changed everything” problem.
 
@@ -133,7 +133,7 @@ Commit before trying a different approach
 
 Sometimes I commit every 10 minutes. Sometimes every 5. Depends on how much is changing.
 
-A code example with 7 lines - see the article for details.
+Showing a series of git commits that incrementally document work-in-progress changes before a final polished commit message.
 
 The final commit is clean. The WIP commits are safety nets.
 
@@ -141,11 +141,11 @@ Branching for Experiments
 
 When I’m not sure if an approach will work, I branch:
 
-A code example with 1 lines - see the article for details.
+Showing a git command that creates and switches to a new branch called experiment slash caching-approach.
 
 Now I can let AI go wild. If it works, merge. If it doesn’t, delete the branch.
 
-A code example with 7 lines - see the article for details.
+Showing git commands for merging an experimental caching branch into main if successful, or deleting it if not.
 
 The main branch never gets polluted with failed experiments.
 
@@ -153,7 +153,7 @@ Git Diff as Review Tool
 
 After AI makes changes, use git diff to see exactly what changed:
 
-A code example with 1 lines - see the article for details.
+Showing a git command that displays unstaged changes in the working directory.
 
 This shows you every modification. Every added line. Every removed line.
 
@@ -167,13 +167,13 @@ Changes outside the scope you requested
 
 If you see something wrong, now’s the time to catch it. Before you test. Before you commit. Before you forget what the original looked like.
 
-A code example with 5 lines - see the article for details.
+Showing git commands that display detailed changes in a specific file and a summary of all modified files.
 
 Reverting Specific Files
 
 Sometimes AI changes are mostly good but one file went wrong. Revert just that file:
 
-A code example with 2 lines - see the article for details.
+Showing a git command that reverts a specific file back to its state in the last commit.
 
 Keep the good changes, undo the bad. Surgical precision.
 
@@ -181,7 +181,7 @@ The Stash for Quick Pivots
 
 Sometimes you want to try something different without losing current changes:
 
-A code example with 11 lines - see the article for details.
+Showing git stash commands for saving current changes, then either dropping or restoring them based on which approach works better.
 
 Stash is like a clipboard for code changes. Useful when you’re not sure which direction is right.
 
@@ -189,7 +189,7 @@ Prompt Template: Asking for Safe Changes
 
 When you want AI to be careful:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt template that instructs an AI to make targeted code changes with explicit constraints and a request to explain modifications before proceeding.
 
 This sets expectations. AI knows the boundaries. You know what to expect in the diff.
 
@@ -197,7 +197,7 @@ When Things Go Really Wrong
 
 Sometimes you need to go back further than the last commit.
 
-A code example with 8 lines - see the article for details.
+Showing git commands for viewing commit history and reverting to a specific commit using checkout or hard reset.
 
 This is why frequent commits matter. More commits means more restore points.
 

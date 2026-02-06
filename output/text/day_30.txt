@@ -1,8 +1,8 @@
 Title: Day 30: Managing Technical Debt When Shipping Fast
 Day: 30
 Date: Jan 30, 2026
-Characters: 4869
-Words: 797
+Characters: 5801
+Words: 895
 ==================================================
 
 Welcome to Day 30 of 31 Days of Vibe Coding. Today's topic is: Managing Technical Debt When Shipping Fast.
@@ -35,7 +35,7 @@ The Debt Inventory Prompt
 
 Start by knowing what you have:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that instructs an AI to analyze a codebase for technical debt across eight categories, rating each issue by severity, effort, and risk.
 
 Prioritizing Debt
 
@@ -49,7 +49,7 @@ Compounding: Will this debt get worse over time? Address before it spreads.
 
 Effort: How hard is it to fix? Sometimes quick wins are worth doing.
 
-A code example with 1 lines - see the article for details.
+Showing a formula that calculates priority by multiplying impact, risk, and compounding factors, then dividing by effort.
 
 High impact, high risk, compounding, low effort = fix immediately.
 
@@ -75,21 +75,21 @@ Use AI to fix what AI created:
 
 Pattern Consolidation
 
-A code example with 8 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze multiple code implementations of the same pattern and create a unified abstraction with refactoring guidance.
 
 Test Improvement
 
-A code example with 11 lines - see the article for details.
+Showing a prompt template that asks an AI to audit existing tests by identifying untested behaviors, missed edge cases, and weak assertions, then generate improved test coverage.
 
 Documentation Generation
 
-A code example with 9 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze complex code and generate documentation, inline comments, usage examples, and potential limitations.
 
 The Debt Log
 
 Track debt explicitly:
 
-A code example with 20 lines - see the article for details.
+Showing a technical debt log organized by priority levels, tracking issues from critical security risks down to accepted debt that won't be fixed.
 
 Review this log weekly. Move items up as they become urgent.
 
@@ -101,19 +101,19 @@ Pre-Generation Review
 
 Before asking AI to generate significant code:
 
-A code example with 7 lines - see the article for details.
+Showing a prompt template that asks an AI to identify existing patterns, abstractions, and potential technical debt before generating new code.
 
 Post-Generation Cleanup
 
 After AI generates code, before committing:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template for reviewing AI-generated code against common technical debt indicators like duplication, pattern inconsistency, and missing tests.
 
 The PR Checklist
 
 Before every merge:
 
-A code example with 7 lines - see the article for details.
+Showing a code review checklist with items covering patterns, duplication, tests, complexity, warnings, documentation, and incremental improvement.
 
 Debt Sprints
 
@@ -145,7 +145,7 @@ Delete old code when nothing uses it
 
 AI can help:
 
-A code example with 7 lines - see the article for details.
+Showing a prompt template for requesting AI assistance with code migration, including placeholders for legacy code and parallel execution guidance.
 
 Signs You Have Too Much Debt
 

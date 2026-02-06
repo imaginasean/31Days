@@ -1,8 +1,8 @@
 Title: Day 31: Your Personal Vibe Coding Playbook
 Day: 31
 Date: Jan 31, 2026
-Characters: 5664
-Words: 877
+Characters: 6141
+Words: 915
 ==================================================
 
 Welcome to Day 31 of 31 Days of Vibe Coding. Today's topic is: Your Personal Vibe Coding Playbook.
@@ -33,7 +33,7 @@ Building Your CLAUDE dot md
 
 Your agent configuration is the foundation. Here’s a template:
 
-A code example with 29 lines - see the article for details.
+Showing a markdown template for documenting project configuration, including tech stack, code standards, patterns, and common commands.
 
 Customize this for your project. Update it as you learn what AI needs to know.
 
@@ -81,7 +81,7 @@ Your Mistakes File
 
 Create common-ai-mistakes dot md and add to it:
 
-A code example with 8 lines - see the article for details.
+Showing a Markdown template structure for documenting common AI mistakes with fields for category, mistake name, the problematic AI behavior, the preferred approach, and an explanation.
 
 Start empty. Every time you correct AI twice for the same thing, add it.
 
@@ -89,15 +89,15 @@ Your Checklists
 
 Pre-Commit Checklist
 
-A code example with 6 lines - see the article for details.
+Showing a checklist of code review items including tests, linting, debug code removal, security, types, and error handling.
 
 Pre-Deploy Checklist
 
-A code example with 6 lines - see the article for details.
+Showing a deployment checklist with checkboxes covering tests, migrations, rollback plans, monitoring, and team notifications.
 
 Code Review Checklist
 
-A code example with 5 lines - see the article for details.
+Showing a checklist with unchecked items for security, performance, edge cases, tests, and pattern consistency reviews.
 
 Your Workflow
 
@@ -285,7 +285,7 @@ Your Playbook Checklist
 
 Before you close this series:
 
-A code example with 6 lines - see the article for details.
+Showing a checklist of setup tasks for getting started with AI-assisted development, including creating documentation files and templates.
 
 You don’t need everything. You need something. Start there. Add more as you go.
 

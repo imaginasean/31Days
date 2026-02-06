@@ -1,8 +1,8 @@
 Title: Day 13: Stop AI From Changing What You Didn't Ask For
 Day: 13
 Date: Jan 13, 2026
-Characters: 6498
-Words: 1102
+Characters: 7593
+Words: 1214
 ==================================================
 
 Welcome to Day 13 of 31 Days of Vibe Coding. Today's topic is: Stop AI From Changing What You Didn't Ask For.
@@ -45,13 +45,13 @@ The Magic Phrase
 
 The single most effective constraint I’ve found:
 
-A code example with 2 lines - see the article for details.
+Showing a prompt instruction that restricts an AI to make only the specified change without any additional modifications or improvements.
 
 That’s it. Those two sentences dramatically reduce scope creep.
 
 Put them at the end of any surgical request:
 
-A code example with 4 lines - see the article for details.
+Showing a prompt instructing an AI to make a single, precise text change to an error message without any other modifications.
 
 AI will make that one change. Nothing more.
 
@@ -59,7 +59,7 @@ Constraining By File
 
 When you want changes limited to specific files:
 
-A code example with 5 lines - see the article for details.
+Showing a prompt that instructs an AI to fix a null check in a specific file while explicitly forbidding changes to any other files.
 
 This prevents the “helpful” cascade where AI fixes one file and then “updates” the files that reference it.
 
@@ -67,7 +67,7 @@ Constraining By Function
 
 For changes within a file:
 
-A code example with 5 lines - see the article for details.
+Showing an AI prompt instruction that requests updating an email validation function to check banned domains while explicitly forbidding other modifications.
 
 AI stays focused on one function.
 
@@ -75,7 +75,7 @@ Constraining By Line
 
 For surgical precision:
 
-A code example with 3 lines - see the article for details.
+Showing an instruction to modify a specific line of code by changing an equality check for 'active' status to a not-equal check for 'inactive' status.
 
 Sometimes you need this level of precision. AI can handle it.
 
@@ -83,7 +83,7 @@ The “Ask First” Pattern
 
 When you’re not sure about scope, make AI ask:
 
-A code example with 8 lines - see the article for details.
+Showing a prompt template that instructs an AI to propose caching changes to a function and wait for approval before implementing.
 
 Now you see the scope before it happens. You can say “yes to 1 and 2, no to 3.”
 
@@ -91,21 +91,21 @@ The “Show Don’t Apply” Pattern
 
 For risky changes:
 
-A code example with 4 lines - see the article for details.
+Showing a prompt that asks for a code review of rate limiting changes without actually implementing them yet.
 
 Review the proposed changes. If they’re right:
 
-A code example with 1 lines - see the article for details.
+Showing a brief instruction to apply previously discussed changes.
 
 If they include unwanted extras:
 
-A code example with 1 lines - see the article for details.
+Showing a code review comment instructing to only add middleware without modifying existing error handling logic.
 
 Explicit Scopes
 
 Be explicit about what’s in and out of scope:
 
-A code example with 12 lines - see the article for details.
+Showing a task specification for adding pagination to an API endpoint, with clear in-scope requirements and explicit out-of-scope boundaries.
 
 The out-of-scope list is as important as the in-scope list. It tells AI where the boundaries are.
 
@@ -119,11 +119,11 @@ This is AI asking permission. Good.
 
 Answer specifically:
 
-A code example with 2 lines - see the article for details.
+Showing a code review comment or instruction asking to update a response type while leaving other endpoints unchanged.
 
 Or:
 
-A code example with 1 lines - see the article for details.
+Showing a brief instruction to keep a response type unchanged and handle it separately.
 
 Don’t just say “sure” to everything AI suggests. Each expansion of scope is a choice.
 
@@ -151,11 +151,11 @@ Using Git to Verify Scope
 
 After AI makes changes, always check:
 
-A code example with 1 lines - see the article for details.
+Showing a git command that displays a summary of changed files with insertion and deletion counts.
 
 This shows which files changed and how much. If you asked for a one-line change and see 10 files modified, something went wrong.
 
-A code example with 1 lines - see the article for details.
+Showing the git command that displays unstaged changes in the working directory.
 
 This shows exactly what changed. Look for:
 
@@ -169,17 +169,17 @@ Additional features
 
 If you see unexpected changes:
 
-A code example with 1 lines - see the article for details.
+Showing a git command that discards all unstaged changes in the current directory.
 
 Start over with tighter constraints.
 
 Template for Surgical Changes
 
-A code example with 15 lines - see the article for details.
+Showing a template for structuring change requests to an AI assistant, with sections for specifying the exact modification, file location, constraints to prevent scope creep, and verification criteria.
 
 Example:
 
-A code example with 15 lines - see the article for details.
+Showing a structured change request template that specifies the file location, constraints, and verification criteria for updating a validation error message.
 
 When Broad Changes Are Okay
 

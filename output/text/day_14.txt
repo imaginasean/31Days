@@ -1,8 +1,8 @@
 Title: Day 14: When AI Starts Hallucinating
 Day: 14
 Date: Jan 14, 2026
-Characters: 8839
-Words: 1392
+Characters: 9548
+Words: 1459
 ==================================================
 
 Welcome to Day 14 of 31 Days of Vibe Coding. Today's topic is: When AI Starts Hallucinating.
@@ -57,13 +57,13 @@ Strategy 1: Check Imports First
 
 Before trusting AI-generated code, verify the imports:
 
-A code example with 1 lines - see the article for details.
+Showing a JavaScript import statement that brings in an uploadFile function from a Prisma client upload module.
 
 Does this path exist? Open your node_modules and check. Run the import in isolation. Don’t assume AI got it right.
 
 Strategy 2: Ask AI to Cite Sources
 
-A code example with 2 lines - see the article for details.
+Showing a user request asking for documentation about Prisma's $upload method feature.
 
 If AI provides a link, check it. If AI admits uncertainty, that’s valuable information. If AI generates a fake documentation link, that’s a big red flag.
 
@@ -83,13 +83,13 @@ Strategy 4: Test Immediately
 
 Before building on AI-generated code, test it:
 
-A code example with 1 lines - see the article for details.
+Showing a prompt asking for a minimal test case to demonstrate that a method works correctly.
 
 Run the test. If it fails immediately with “method not found,” you’ve caught hallucination early.
 
 Strategy 5: Ask Directly
 
-A code example with 4 lines - see the article for details.
+Showing a prompt asking an AI to verify whether a Prisma method actually exists and to admit uncertainty if unsure.
 
 AI will often admit uncertainty when directly asked. It’s less likely to admit uncertainty unprompted.
 
@@ -99,7 +99,7 @@ Invented Methods
 
 AI adds methods to libraries that don’t exist:
 
-A code example with 8 lines - see the article for details.
+Showing JavaScript code examples of hallucinated APIs that don't actually exist, including a fake Prisma upload method, a non-existent fetch auto-retry option, and an imaginary array property.
 
 Prevention: Verify any method you don’t recognize against official docs.
 
@@ -107,7 +107,7 @@ Invented Options
 
 AI adds configuration options that aren’t supported:
 
-A code example with 5 lines - see the article for details.
+Showing Express dot js server initialization with made-up configuration options that don't actually exist in the framework.
 
 Prevention: Check library documentation for configuration options.
 
@@ -115,7 +115,7 @@ Invented Package Names
 
 AI imports packages that don’t exist or uses wrong package names:
 
-A code example with 5 lines - see the article for details.
+Showing JavaScript import statements using incorrect or non-existent package names as examples of hallucinated dependencies.
 
 Prevention: Check npm for package existence before installing.
 
@@ -123,7 +123,7 @@ Hallucinated Function Signatures
 
 AI generates calls with wrong argument order or types:
 
-A code example with 5 lines - see the article for details.
+Showing JavaScript examples comparing an incorrect parameter order for Node's writeFile function with the correct signature.
 
 Prevention: Check function signatures in IDE (hover) or documentation.
 
@@ -131,7 +131,7 @@ Version-Specific Features That Don’t Exist
 
 AI claims a feature exists in a specific version when it doesn’t:
 
-A code example with 1 lines - see the article for details.
+Showing a text instruction to use React's useOptimistic hook from version 18.2.
 
 Is that real? In this case, sort of (it’s in React 19 Canary). But AI confidently states version numbers that are often wrong.
 
@@ -141,7 +141,7 @@ The Verification Prompt
 
 When you suspect hallucination:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt template that asks an AI to verify whether a specific method or API it used is real, requesting documentation citations, version information, and a confidence rating.
 
 This gives AI permission to admit uncertainty. Often, when directly questioned, AI will say “I’m not certain this exists in the current version” or “I may have confused this with a similar library.”
 
@@ -185,7 +185,7 @@ Real Example: The Express Middleware
 
 I asked Claude to add rate limiting to an Express app. Claude generated:
 
-A code example with 9 lines - see the article for details.
+Showing Express dot js middleware configuration that sets up rate limiting to allow 100 requests per 15-minute window.
 
 Most of this is correct. express-rate-limit is real. Those options are mostly real.
 

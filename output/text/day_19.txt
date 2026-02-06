@@ -1,8 +1,8 @@
 Title: Day 19: AI as Code Reviewer
 Day: 19
 Date: Jan 19, 2026
-Characters: 4725
-Words: 763
+Characters: 5904
+Words: 909
 ==================================================
 
 Welcome to Day 19 of 31 Days of Vibe Coding. Today's topic is: AI as Code Reviewer.
@@ -31,31 +31,31 @@ Each pass has a specific prompt. Each finds different issues. Together, they’r
 
 Pass 1: Security Review
 
-A code example with 21 lines - see the article for details.
+Showing a prompt template that instructs an AI to perform a security code review, checking for common vulnerabilities like injection attacks and authentication issues, and requesting structured findings with severity ratings and fixes.
 
 Pass 2: Performance Review
 
-A code example with 23 lines - see the article for details.
+Showing a prompt template that instructs an AI to act as a performance engineer reviewing code for common efficiency issues like N+1 queries, missing pagination, and algorithm complexity.
 
 Pass 3: Maintainability Review
 
-A code example with 23 lines - see the article for details.
+Showing a prompt template that instructs an AI to perform a code review checking for maintainability issues like clarity, naming, structure, and duplication.
 
 Pass 4: Edge Case Review
 
-A code example with 21 lines - see the article for details.
+Showing a prompt template that instructs an AI to act as a QA engineer and systematically find edge cases that could break provided code.
 
 Consolidating Feedback
 
 After four passes, you have a lot of feedback. Consolidate it:
 
-A code example with 25 lines - see the article for details.
+Showing a prompt template that asks an AI to consolidate feedback from four code review passes into a prioritized list grouped by severity level.
 
 A Real Multi-Pass Review
 
 Here’s code AI generated for user registration:
 
-A code example with 25 lines - see the article for details.
+Showing an Express route handler for user registration that checks for existing emails, hashes the password with bcrypt, creates the user in the database, and returns a JWT token.
 
 Security pass found:
 
@@ -127,19 +127,19 @@ Review by Persona
 
 Sometimes you want specific expertise:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to review code from three different perspectives: a junior developer, an on-call engineer, and a future maintainer, listing concerns for each.
 
 The Pre-Commit Review
 
 Quick review before committing:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template for quick code review that asks an AI to check a diff for bugs, security issues, performance problems, and embarrassing code.
 
 The PR Description Generator
 
 AI can also write your PR description based on code review:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate a pull request description from a code diff, covering summary, rationale, approach, testing, risks, and rollback steps.
 
 When AI Review Falls Short
 
@@ -159,7 +159,7 @@ Building Review Into Your Workflow
 
 Don’t save review for the end. Review as you go:
 
-A code example with 4 lines - see the article for details.
+Showing a workflow checklist for code review stages, from pre-implementation planning through PR submission and human review.
 
 AI review is cheap. Run it often.
 
@@ -167,7 +167,7 @@ The Review Checklist
 
 Before any code goes to PR:
 
-A code example with 7 lines - see the article for details.
+Showing a checklist for tracking completion of code review passes covering security, performance, maintainability, edge cases, and issue resolution.
 
 Tomorrow
 

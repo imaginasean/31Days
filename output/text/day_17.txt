@@ -1,8 +1,8 @@
 Title: Day 17: AI as SRE: Is This Code Operable?
 Day: 17
 Date: Jan 17, 2026
-Characters: 3908
-Words: 671
+Characters: 4902
+Words: 769
 ==================================================
 
 Welcome to Day 17 of 31 Days of Vibe Coding. Today's topic is: AI as SRE: Is This Code Operable?.
@@ -35,13 +35,13 @@ The SRE Audit Prompt
 
 Here’s the prompt that catches operability gaps:
 
-A code example with 42 lines - see the article for details.
+Showing a prompt template that instructs an AI to review code from an SRE perspective, checking for observability, failure modes, debuggability, recoverability, and alerting gaps.
 
 A Real SRE Audit
 
 Here’s code AI generated for processing card trades:
 
-A code example with 29 lines - see the article for details.
+Showing a TypeScript function that processes an accepted trade by swapping card ownership between two users and marking the trade as completed.
 
 The SRE audit found:
 
@@ -79,7 +79,7 @@ No transaction. Partial state is possible.
 
 Fixed version:
 
-A code example with 89 lines - see the article for details.
+Showing a TypeScript function that processes a card trade between users within a database transaction, with logging and metrics tracking throughout.
 
 The fixed version tells you everything: what’s processing, what succeeded, what failed, how long it took, and why.
 
@@ -87,31 +87,31 @@ The Logging Audit Prompt
 
 For focused logging review:
 
-A code example with 21 lines - see the article for details.
+Showing a code review prompt template that guides reviewers through checking logging completeness, context, and security for each operation.
 
 The Metrics Audit Prompt
 
 For metrics coverage:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze code and recommend observability metrics across throughput, latency, errors, saturation, and business categories.
 
 The Failure Mode Prompt
 
 For comprehensive failure analysis:
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template that asks an AI to analyze code failure modes across categories like network issues, database failures, and concurrency problems, with structured questions about causes, detection, and recovery.
 
 The Runbook Generation Prompt
 
 For operational documentation:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that asks an AI to generate an operational runbook for a software feature, including sections for health checks, troubleshooting, and recovery procedures.
 
 The 3am Test
 
 For every piece of code, ask:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt template with five diagnostic questions for evaluating code debuggability during on-call incidents.
 
 If the answer to any question is “I don’t know,” the code isn’t ready for production.
 
@@ -119,13 +119,13 @@ The Operability Checklist
 
 Before shipping:
 
-A code example with 10 lines - see the article for details.
+Showing a production readiness checklist covering logging, metrics, alerting, failure handling, and operational documentation requirements.
 
 Building Operability Into Prompts
 
 Don’t audit after. Build it in from the start:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that instructs an AI to build production-ready features with comprehensive logging, metrics, error handling, and health checks.
 
 Tomorrow
 

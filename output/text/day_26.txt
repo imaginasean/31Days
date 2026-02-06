@@ -1,8 +1,8 @@
 Title: Day 26: Working Across Multiple Services With AI
 Day: 26
 Date: Jan 26, 2026
-Characters: 3296
-Words: 537
+Characters: 4744
+Words: 699
 ==================================================
 
 Welcome to Day 26 of 31 Days of Vibe Coding. Today's topic is: Working Across Multiple Services With AI.
@@ -19,17 +19,17 @@ The Multi-Service Planning Prompt
 
 Start with the big picture:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template for planning a feature across multiple services, asking an AI to help identify changes, dependencies, contracts, deployment order, and potential risks.
 
 The Contract-First Approach
 
 Define the interfaces before the implementations:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that asks an AI to generate API contracts, database schemas, TypeScript interfaces, and event schemas for a feature to serve as a shared source of truth.
 
 Example output:
 
-A code example with 41 lines - see the article for details.
+Showing TypeScript interfaces defining API contracts, database schema, and event types for a wishlist feature.
 
 Now every service implementation references these contracts.
 
@@ -37,55 +37,55 @@ The Backend Implementation Prompt
 
 With contracts defined:
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate a complete backend feature implementation including API endpoints, service logic, database queries, validation, and tests based on provided contracts and existing codebase patterns.
 
 The Frontend Implementation Prompt
 
 Similarly for frontend:
 
-A code example with 19 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate frontend code including API clients, React components, state management, and tests based on provided specifications.
 
 The Database Migration Prompt
 
 For schema changes:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt template for generating database migrations that asks the AI to consider downtime, existing data, indexes, and rollback procedures.
 
 Keeping Types in Sync
 
 When types exist in multiple places:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that asks an AI to compare type definitions across backend, frontend, and database layers to identify mismatches and recommend a single source of truth strategy.
 
 The Integration Test Prompt
 
 Testing across services:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template that requests integration tests for a cross-service feature, listing the data flow steps and specific test scenarios to cover.
 
 The Dependency Order Prompt
 
 When changes must happen in sequence:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template that asks an AI to help determine deployment order for multiple services given specific changes and constraints.
 
 The Backward Compatibility Prompt
 
 When you can’t deploy everything at once:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that asks an AI to generate backward-compatible code for an API migration, including the current and desired contracts.
 
 Coordinating Prompts Across Files
 
 When one prompt needs to inform another:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that asks an AI to generate a frontend component that integrates with previously defined API endpoints and database schema.
 
 The System Context Document
 
 For complex features, create a context document:
 
-A code example with 25 lines - see the article for details.
+Showing a feature specification template for a wishlist feature, outlining affected services, implementation checklist, and sections for contracts and open questions.
 
 Reference this document in every prompt for consistent context.
 
@@ -93,13 +93,13 @@ The Cross-Service Debug Prompt
 
 When something isn’t working across services:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template for debugging cross-service issues, with placeholders for expected versus actual behavior and logs from frontend, backend, and database.
 
 The Feature Flag Prompt
 
 For gradual cross-service rollout:
 
-A code example with 11 lines - see the article for details.
+Showing a prompt template for designing a gradual feature rollout across multiple services with synchronized feature flags and staged percentages.
 
 Tomorrow
 

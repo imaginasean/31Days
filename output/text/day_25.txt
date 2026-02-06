@@ -1,8 +1,8 @@
 Title: Day 25: Refactoring AI Code: From Working to Maintainable
 Day: 25
 Date: Jan 25, 2026
-Characters: 3372
-Words: 578
+Characters: 4633
+Words: 721
 ==================================================
 
 Welcome to Day 25 of 31 Days of Vibe Coding. Today's topic is: Refactoring AI Code: From Working to Maintainable.
@@ -19,29 +19,29 @@ The Code Smell Detection Prompt
 
 Start by identifying problems:
 
-A code example with 22 lines - see the article for details.
+Showing a prompt template that instructs an AI to analyze code for maintainability issues like poor naming, duplication, deep nesting, and tight coupling.
 
 The Incremental Refactoring Prompt
 
 Don’t refactor everything at once. Go step by step:
 
-A code example with 13 lines - see the article for details.
+Showing a prompt template for incremental code refactoring that asks an AI to suggest one improvement at a time while preserving existing behavior.
 
 The Function Extraction Prompt
 
 When functions do too much:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that asks an AI to refactor a long function by extracting distinct responsibilities into separate, testable functions while maintaining existing behavior.
 
 A Real Refactoring Session
 
 Here’s code AI generated for handling a card trade:
 
-A code example with 43 lines - see the article for details.
+Showing a TypeScript function that handles card trading between users, supporting accept, reject, and cancel actions with ownership transfers and notifications.
 
 After refactoring:
 
-A code example with 74 lines - see the article for details.
+Showing TypeScript functions that handle a card trading system, including fetching trade details, validating user permissions, and transferring card ownership between users.
 
 The refactored version is longer but:
 
@@ -59,43 +59,43 @@ The Naming Improvement Prompt
 
 When names are unclear:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template that instructs an AI to suggest better variable and function names following conventions like verbs for functions and question-style names for booleans.
 
 The Duplication Elimination Prompt
 
 When you see patterns repeated:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that instructs an AI to find code duplication and suggest refactoring only when patterns appear three or more times.
 
 The Complexity Reduction Prompt
 
 When code is too nested:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that instructs an AI to simplify code using techniques like early returns, guard clauses, named booleans, and polymorphism.
 
 The Consistency Prompt
 
 When patterns are inconsistent:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template for requesting code consistency review against specified patterns, covering error handling, naming, structure, and response formats.
 
 The Comments and Documentation Prompt
 
 When code needs explanation:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that instructs an AI to add documentation to code, specifying what types of comments to include and what to avoid.
 
 Refactoring With Tests As Safety Net
 
 Always have tests before refactoring:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that asks an AI to generate comprehensive tests for existing code before performing a refactoring, ensuring behavior is preserved.
 
 The Boy Scout Rule
 
 Leave code better than you found it:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that asks an AI to suggest quick, low-risk code improvements in the area you're already working on.
 
 When NOT to Refactor
 
@@ -111,7 +111,7 @@ Without tests : Refactoring without tests is gambling
 
 Ask AI:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template that asks an AI to evaluate whether code should be refactored based on modification frequency, bug risk, test coverage, and blocking status.
 
 Tomorrow
 

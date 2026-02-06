@@ -1,8 +1,8 @@
 Title: Day 24: Deployment Automation: Let AI Generate the Scary Parts
 Day: 24
 Date: Jan 24, 2026
-Characters: 3072
-Words: 519
+Characters: 4353
+Words: 648
 ==================================================
 
 Welcome to Day 24 of 31 Days of Vibe Coding. Today's topic is: Deployment Automation: Let AI Generate the Scary Parts.
@@ -21,7 +21,7 @@ The Migration Generation Prompt
 
 For database migrations:
 
-A code example with 23 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate database migrations with forward, rollback, and data migration steps while considering production concerns like table locks and downtime.
 
 A Real Migration Example
 
@@ -29,11 +29,11 @@ I needed to add a status field to a trades table with millions of rows.
 
 My prompt:
 
-A code example with 10 lines - see the article for details.
+Showing a prompt template requesting a PostgreSQL migration that adds a status enum field to a large trades table with zero-downtime requirements.
 
 AI generated:
 
-A code example with 48 lines - see the article for details.
+Showing a PostgreSQL migration that adds a trade status enum column with batched backfilling to avoid table locks during the update.
 
 The AI knew about batched updates, SKIP LOCKED , and the order of operations. Things I might have gotten wrong writing it myself.
 
@@ -41,55 +41,55 @@ The Rollback Script Prompt
 
 For any deployment:
 
-A code example with 23 lines - see the article for details.
+Showing a prompt template that asks an AI to generate a deployment rollback script with verification steps, timing estimates, and stakeholder notifications.
 
 The Deployment Checklist Prompt
 
 For complex deployments:
 
-A code example with 29 lines - see the article for details.
+Showing a prompt template that generates a comprehensive deployment checklist covering pre-deployment tasks, deployment steps, post-deployment verification, and rollback triggers for a given feature.
 
 The Runbook Prompt
 
 For when things go wrong:
 
-A code example with 15 lines - see the article for details.
+Showing a prompt template that asks an AI to generate a production incident runbook with sections for failure identification, mitigation, investigation, resolution, and communication.
 
 Infrastructure as Code
 
 When you need infrastructure:
 
-A code example with 22 lines - see the article for details.
+Showing a prompt template that asks an AI to generate infrastructure-as-code for a specified cloud provider with security, networking, and scaling requirements.
 
 CI slash CD Pipeline Generation
 
 For deployment pipelines:
 
-A code example with 17 lines - see the article for details.
+Showing a prompt template that instructs an AI to generate a CI slash CD pipeline configuration with specific requirements for testing, deployment stages, caching, and rollback capabilities.
 
 The Pre-Deployment Verification Prompt
 
 Before you deploy:
 
-A code example with 16 lines - see the article for details.
+Showing a deployment readiness checklist prompt that asks an AI to help verify tests, migrations, feature flags, monitoring, and rollback plans before deploying.
 
 The Post-Deployment Verification Prompt
 
 After you deploy:
 
-A code example with 11 lines - see the article for details.
+Showing a prompt template that asks an AI to generate deployment verification steps including smoke tests, data queries, metrics checks, and success criteria.
 
 Feature Flag Integration
 
 For safe rollouts:
 
-A code example with 11 lines - see the article for details.
+Showing a prompt template for generating feature flag implementation with gradual rollout percentages, monitoring metrics, and cleanup procedures.
 
 The Deployment Documentation Prompt
 
 For the future:
 
-A code example with 13 lines - see the article for details.
+Showing a prompt template for generating deployment documentation that covers technical changes, verification steps, rollback procedures, and contact information.
 
 Tomorrow
 

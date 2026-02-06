@@ -1,8 +1,8 @@
 Title: Day 22: Production Debugging: When It's On Fire
 Day: 22
 Date: Jan 22, 2026
-Characters: 3881
-Words: 645
+Characters: 5133
+Words: 777
 ==================================================
 
 Welcome to Day 22 of 31 Days of Vibe Coding. Today's topic is: Production Debugging: When It's On Fire.
@@ -17,7 +17,7 @@ The Incident Response Prompt
 
 When things are on fire, start here:
 
-A code example with 19 lines - see the article for details.
+Showing a structured prompt template for AI-assisted incident triage, with placeholders for error details, symptoms, recent changes, and system architecture.
 
 Keep it short. You’re in a hurry.
 
@@ -25,7 +25,7 @@ Stack Trace Analysis Under Pressure
 
 When you have a stack trace:
 
-A code example with 9 lines - see the article for details.
+Showing a prompt template for quickly analyzing production errors by pasting a stack trace and requesting a structured breakdown of the error source and likely cause.
 
 No elaborate explanations needed. You need direction, not education.
 
@@ -33,7 +33,7 @@ Log Pattern Recognition
 
 When you have logs but can’t see the pattern:
 
-A code example with 11 lines - see the article for details.
+Showing a prompt template for analyzing production logs to identify when a problem started, what changed, and any patterns in errors.
 
 AI can spot patterns in logs faster than scrolling through them manually.
 
@@ -41,7 +41,7 @@ The Correlation Prompt
 
 When multiple things seem broken:
 
-A code example with 11 lines - see the article for details.
+Showing a debugging prompt template that lists multiple failure symptoms and recent changes, then asks an AI to identify a common root cause.
 
 Often multiple symptoms have one root cause. AI helps find the connection.
 
@@ -49,7 +49,7 @@ Quick Mitigation Strategies
 
 When you need to stop the bleeding:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template for getting AI help during production incidents, requesting ranked mitigation options based on speed, risk, and effectiveness.
 
 Sometimes the right answer is a workaround that buys you time.
 
@@ -57,25 +57,25 @@ Database Issue Diagnosis
 
 Database problems need specific analysis:
 
-A code example with 16 lines - see the article for details.
+Showing a troubleshooting template for diagnosing production database issues, with placeholders for symptoms, metrics, recent changes, and questions to ask.
 
 The Rollback Decision
 
 When you’re not sure whether to rollback:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template for getting AI help deciding whether to rollback a deployment, with placeholders for the problem, recent changes, and potential risks.
 
 Post-Incident Analysis Prompt
 
 After the fire is out:
 
-A code example with 16 lines - see the article for details.
+Showing a prompt template for analyzing system incidents that asks for a timeline, impact assessment, root cause analysis, and action items.
 
 The “I Have No Idea” Prompt
 
 Sometimes you’re truly stuck:
 
-A code example with 10 lines - see the article for details.
+Showing a debugging prompt template for getting help when stuck on a production issue, with placeholders for symptoms, what's been ruled out, and attempted fixes.
 
 Admitting you’re stuck is the first step to getting unstuck.
 
@@ -83,13 +83,13 @@ Information Gathering Under Pressure
 
 When you need to collect more data quickly:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template that asks an AI to generate debugging commands for a specified system and problem, covering resources, processes, logs, and connectivity.
 
 The Customer Impact Prompt
 
 When you need to communicate:
 
-A code example with 12 lines - see the article for details.
+Showing a prompt template for generating customer-facing status updates about technical incidents, with placeholders for incident details and guidelines for tone.
 
 Communication matters during incidents. AI can help you write clearly when you’re stressed.
 
@@ -97,7 +97,7 @@ Building Your Incident Playbook
 
 After enough incidents, you have patterns. Document them:
 
-A code example with 14 lines - see the article for details.
+Showing a prompt template for generating an incident response playbook, with placeholders for incident types and a structured outline requesting symptoms, diagnostic steps, causes, and resolution procedures.
 
 Then when an incident happens, you have a starting point.
 
@@ -135,7 +135,7 @@ The Incident Checklist
 
 Keep this handy:
 
-A code example with 11 lines - see the article for details.
+Showing a checklist for incident response with steps from acknowledgment through resolution and post-mortem scheduling.
 
 Tomorrow
 

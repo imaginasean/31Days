@@ -1,8 +1,8 @@
 Title: Day 12: The Common AI Mistakes File
 Day: 12
 Date: Jan 12, 2026
-Characters: 9091
-Words: 1462
+Characters: 9768
+Words: 1532
 ==================================================
 
 Welcome to Day 12 of 31 Days of Vibe Coding. Today's topic is: The Common AI Mistakes File.
@@ -35,13 +35,13 @@ Create common-ai-mistakes dot md in your project root. Start with mistakes you�
 
 The format matters. AI learns from contrast. For each mistake, include:
 
-A code example with 7 lines - see the article for details.
+Showing a documentation template for capturing AI coding mistakes with sections for the issue title, explanation, wrong versus right examples, and project-specific context.
 
 That’s it. Wrong pattern, right pattern, brief context. AI understands this format instantly.
 
 Here’s what a real entry looks like:
 
-A code example with 7 lines - see the article for details.
+Showing a documentation note warning against missing input validation on routes, contrasting wrong and right approaches with a recommendation to validate at the boundary.
 
 Notice I’m not showing full code blocks with implementations. The AI doesn’t need to see a complete route handler. It needs to know: “validate before handling.” That’s enough.
 
@@ -51,25 +51,25 @@ The file exists. Now AI needs to read it. You have options.
 
 Explicit reference in your prompt:
 
-A code example with 8 lines - see the article for details.
+Showing a prompt that instructs an AI to generate a card trading service while following documented best practices.
 
 This works, but you have to remember to include it every time.
 
 Reference specific sections when relevant:
 
-A code example with 3 lines - see the article for details.
+Showing a prompt instruction that asks to add a trade listing endpoint while referencing documentation about common AI mistakes.
 
 Targeted references work better than “read everything” for focused tasks.
 
 Have AI confirm it read the file:
 
-A code example with 2 lines - see the article for details.
+Showing a prompt instruction that requires reviewing a mistakes document and identifying relevant entries before beginning a task.
 
 This forces AI to acknowledge the patterns before generating code. If it summarizes the relevant entries, you know it’s loaded that context.
 
 Include in CLAUDE dot md for automatic loading:
 
-A code example with 3 lines - see the article for details.
+Showing a documentation header that references a file about common AI mistakes as required reading before code generation.
 
 Now AI loads it automatically. No prompt gymnastics needed.
 
@@ -91,7 +91,7 @@ Here’s the workflow that works for me. When I correct AI, I ask myself: “Hav
 
 Sometimes I’ll even tell AI to add the entry:
 
-A code example with 4 lines - see the article for details.
+Showing a prompt instruction that documents a common AI coding mistake about file organization, preferring to extend existing utility files rather than creating new ones.
 
 AI can maintain its own documentation. Let it help.
 
@@ -137,7 +137,7 @@ Organizing Your File
 
 Group mistakes by area so you can reference specific sections in prompts:
 
-A code example with 2 lines - see the article for details.
+Showing a prompt instruction that asks for trade flow tests while referencing a specific section of an AI mistakes documentation file.
 
 Common categories: API slash Routes, Services, Database, Types, Testing, Components. But use whatever fits your project.
 

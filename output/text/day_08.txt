@@ -1,8 +1,8 @@
 Title: Day 8: When to Restart vs When to Keep Going
 Day: 8
 Date: Jan 8, 2026
-Characters: 8796
-Words: 1415
+Characters: 9223
+Words: 1471
 ==================================================
 
 Welcome to Day 8 of 31 Days of Vibe Coding. Today's topic is: When to Restart vs When to Keep Going.
@@ -71,7 +71,7 @@ Starting over doesn’t mean losing everything. It means distilling what matters
 
 Here’s what to include:
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template structure for providing an AI with project context, completed work, key decisions, current code state, and the next task to accomplish.
 
 This is maybe 10 minutes of work. Compare that to the hours you’d lose fighting degraded context.
 
@@ -137,7 +137,7 @@ The “Stop and Assess” Prompt
 
 When you’re unsure whether to continue or restart, ask AI to assess:
 
-A code example with 9 lines - see the article for details.
+Showing a prompt template that asks an AI to pause and summarize its understanding of the current project state before continuing.
 
 If AI’s summary matches your understanding, keep going. If it’s confused, contradictory, or missing key points, restart.
 
@@ -147,7 +147,7 @@ The Partial Restart
 
 Sometimes you don’t need a full restart. You need a checkpoint reset.
 
-A code example with 7 lines - see the article for details.
+Showing a prompt template that asks an AI to revert to a known working version of code and implement only a single feature without modifying existing logic.
 
 You’re not starting the whole conversation over. You’re resetting to a known good state and continuing from there.
 
@@ -183,7 +183,7 @@ That’s when I restarted.
 
 New conversation:
 
-A code example with 23 lines - see the article for details.
+Showing a development context document that outlines the current state of a card import feature, including what's working, key architectural decisions, and the specific next task for adding database error handling.
 
 Ten messages later, error handling was done. Clean implementation that respected the validation architecture.
 

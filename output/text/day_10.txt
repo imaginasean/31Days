@@ -1,8 +1,8 @@
 Title: Day 10: Agent Configuration - Set Your Standards Once
 Day: 10
 Date: Jan 10, 2026
-Characters: 7190
-Words: 1139
+Characters: 8054
+Words: 1232
 ==================================================
 
 Welcome to Day 10 of 31 Days of Vibe Coding. Today's topic is: Agent Configuration - Set Your Standards Once.
@@ -45,7 +45,7 @@ If you’re using Claude Code, create a file called CLAUDE dot md in your projec
 
 Here’s what mine looks like:
 
-A code example with 10 lines - see the article for details.
+Showing a project documentation header outlining the tech stack for collectyourcards.com, including Node.js, PostgreSQL, React, and testing frameworks.
 
 server/
 
@@ -69,17 +69,17 @@ services/ # API client functions
 
 pages/ # Page components
 
-A code example with 34 lines - see the article for details.
+Showing a coding standards document with rules for TypeScript, error handling, and testing, plus a pattern example of separating route handlers from service layer business logic.
 
 Error Handling
 
-A code example with 9 lines - see the article for details.
+Showing a try-catch block that logs errors to a telemetry service with context before throwing a user-friendly application error.
 
 Database Queries
 
 Always use Prisma transactions for multi-step operations:
 
-A code example with 4 lines - see the article for details.
+Showing a Prisma database transaction that wraps a user update and card creation in a single atomic operation.
 
 Common Mistakes to Avoid
 
@@ -117,31 +117,31 @@ Good agent configuration covers:
 
 What language? What framework? What database? What testing framework?
 
-A code example with 5 lines - see the article for details.
+Showing a documentation snippet listing a tech stack with TypeScript, Express, PostgreSQL with Prisma, and Jest for testing.
 
 2. Project Structure
 
 Where do files go? What’s the naming convention?
 
-A code example with 4 lines - see the article for details.
+Showing a project structure guide specifying where to place routes, services, and test files in a codebase.
 
 3. Patterns to Follow
 
 How should common things be done? Show examples.
 
-A code example with 7 lines - see the article for details.
+Showing code convention guidelines that define a standard API response format and recommend using Zod schemas for validation at API boundaries.
 
 4. Things to Avoid
 
 What mistakes does this AI need to not make?
 
-A code example with 5 lines - see the article for details.
+Showing a don't-do list of coding standards to avoid, including using any types, skipping error handling, using console dot log instead of a logger, and creating new utility files.
 
 5. File References
 
 What existing code should AI reference for patterns?
 
-A code example with 4 lines - see the article for details.
+Showing a list of reference files pointing to TypeScript service, route, and test patterns in a server directory structure.
 
 Keep It Updated
 
@@ -161,7 +161,7 @@ Testing Your Configuration
 
 After setting up configuration, test that it works:
 
-A code example with 1 lines - see the article for details.
+Showing a brief prompt or instruction asking to generate a new endpoint for user preferences.
 
 Check:
 
@@ -209,7 +209,7 @@ The Meta-Prompt
 
 You can even ask AI to help write your configuration:
 
-A code example with 13 lines - see the article for details.
+Showing a prompt template for generating a CLAUDE dot md configuration file that documents project standards, tech stack, and coding patterns for AI coding assistants.
 
 AI generates a starting point. You refine based on experience.
 

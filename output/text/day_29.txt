@@ -1,8 +1,8 @@
 Title: Day 29: Measuring What Matters: Is AI Actually Helping?
 Day: 29
 Date: Jan 29, 2026
-Characters: 5733
-Words: 930
+Characters: 6093
+Words: 967
 ==================================================
 
 Welcome to Day 29 of 31 Days of Vibe Coding. Today's topic is: Measuring What Matters: Is AI Actually Helping?.
@@ -39,7 +39,7 @@ Cycle Time
 
 Time from starting a task to deploying it.
 
-A code example with 1 lines - see the article for details.
+Showing a formula that calculates cycle time as the difference between deploy and start timestamps.
 
 If AI is helping, cycle time should decrease. Track this per feature or per issue.
 
@@ -47,7 +47,7 @@ Throughput
 
 Features or issues completed per week.
 
-A code example with 1 lines - see the article for details.
+Showing a formula that calculates throughput as completed items divided by a time period.
 
 If AI is helping, throughput should increase while quality stays constant.
 
@@ -119,7 +119,7 @@ Where did AI hurt?
 
 Option 3: Simple Spreadsheet
 
-A code example with 5 lines - see the article for details.
+Showing a markdown table tracking three features with their start dates, deploy dates, whether AI was used, bug counts, and rework status.
 
 Patterns emerge quickly.
 
@@ -161,7 +161,7 @@ Context switching takes time
 
 For simple tasks, this overhead can exceed the benefit.
 
-A code example with 1 lines - see the article for details.
+Showing a formula that calculates AI benefit as time saved minus the combined time spent on prompting, reviewing, and fixing.
 
 If the benefit is negative, AI slowed you down.
 
@@ -209,7 +209,7 @@ Tracking Template
 
 Weekly review template:
 
-A code example with 23 lines - see the article for details.
+Showing a markdown template for tracking weekly development work, including sections for shipped features, time distribution across activities like prompting and reviewing AI, and retrospective notes.
 
 The Honest Truth
 

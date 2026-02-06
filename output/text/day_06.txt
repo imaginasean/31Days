@@ -1,8 +1,8 @@
 Title: Day 6: Breaking Features Into Phases
 Day: 6
 Date: Jan 6, 2026
-Characters: 9923
-Words: 1567
+Characters: 10351
+Words: 1608
 ==================================================
 
 Welcome to Day 6 of 31 Days of Vibe Coding. Today's topic is: Breaking Features Into Phases.
@@ -111,13 +111,13 @@ When you’ve identified your phases, prompt AI for each one separately.
 
 Phase 1 prompt:
 
-A code example with 35 lines - see the article for details.
+Showing a technical specification prompt for building an achievement system, outlining the database schema, API endpoints, and service structure for a card collection website.
 
 Notice what’s NOT in this prompt. No leaderboards. No notifications. No complex UI. Just the core.
 
 After Phase 1 is complete and verified:
 
-A code example with 33 lines - see the article for details.
+Showing a structured project context document that outlines the current state, intent, constraints, and verification criteria for implementing Phase 2 of an achievement system.
 
 Each phase prompt includes:
 
@@ -233,11 +233,11 @@ Prompt Template for Phased Implementation
 
 Starting a New Feature
 
-A code example with 25 lines - see the article for details.
+Showing a prompt template that structures feature development into phases with sections for context, intent, constraints, scope, and verification criteria.
 
 Continuing to Next Phase
 
-A code example with 20 lines - see the article for details.
+Showing a prompt template for phased development that references previous work, defines current phase intent and constraints, and includes verification steps.
 
 Common Mistakes
 
