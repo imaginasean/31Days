@@ -1,0 +1,190 @@
+Title: Day 19: AI as Code Reviewer
+Day: 19
+Date: Jan 19, 2026
+Characters: 4725
+Words: 763
+==================================================
+
+Welcome to Day 19 of 31 Days of Vibe Coding. Today's topic is: AI as Code Reviewer.
+
+Code review is a single pass.
+
+Someone looks at your code, leaves comments, you address them, done. One perspective, one set of concerns, one opportunity to catch problems.
+
+The problem with single-pass review: different people catch different things. The security expert sees vulnerabilities. The performance person sees bottlenecks. The maintainability person sees code smells. One reviewer can’t hold all these lenses simultaneously.
+
+AI can do multiple passes. Each pass with a different focus. Security pass, then performance pass, then maintainability pass, then edge cases. Four perspectives instead of one. More issues caught before production.
+
+The Multi-Pass System
+
+Here’s how I structure AI code reviews:
+
+Pass 1: Security Does this code create vulnerabilities?
+
+Pass 2: Performance Will this code be fast enough at scale?
+
+Pass 3: Maintainability Will future developers understand this code?
+
+Pass 4: Edge Cases What inputs will break this code?
+
+Each pass has a specific prompt. Each finds different issues. Together, they’re more thorough than any single review.
+
+Pass 1: Security Review
+
+A code example with 21 lines - see the article for details.
+
+Pass 2: Performance Review
+
+A code example with 23 lines - see the article for details.
+
+Pass 3: Maintainability Review
+
+A code example with 23 lines - see the article for details.
+
+Pass 4: Edge Case Review
+
+A code example with 21 lines - see the article for details.
+
+Consolidating Feedback
+
+After four passes, you have a lot of feedback. Consolidate it:
+
+A code example with 25 lines - see the article for details.
+
+A Real Multi-Pass Review
+
+Here’s code AI generated for user registration:
+
+A code example with 25 lines - see the article for details.
+
+Security pass found:
+
+Email existence exposed (timing attack + information disclosure)
+
+No password strength validation
+
+JWT token never expires
+
+Full user object returned (might include sensitive fields)
+
+No rate limiting (brute force registration)
+
+Performance pass found:
+
+No issues at this scale
+
+Maintainability pass found:
+
+Magic number 10 for bcrypt rounds should be constant
+
+No input validation before database operation
+
+Error handling doesn’t log for observability
+
+Edge case pass found:
+
+No validation on email format
+
+No validation on name (empty string accepted)
+
+Very long strings accepted (no length limits)
+
+Password can be empty string
+
+Consolidated and prioritized:
+
+Critical:
+
+Add rate limiting to prevent abuse
+
+Add JWT expiration
+
+Don’t reveal if email exists
+
+High:
+
+Validate password strength
+
+Validate email format
+
+Limit returned user fields
+
+Medium:
+
+Extract bcrypt rounds to constant
+
+Add input length limits
+
+Add observability logging
+
+Low:
+
+Add name validation
+
+One review pass might catch 3-4 of these. Four passes caught 12.
+
+Review by Persona
+
+Sometimes you want specific expertise:
+
+A code example with 17 lines - see the article for details.
+
+The Pre-Commit Review
+
+Quick review before committing:
+
+A code example with 12 lines - see the article for details.
+
+The PR Description Generator
+
+AI can also write your PR description based on code review:
+
+A code example with 14 lines - see the article for details.
+
+When AI Review Falls Short
+
+AI reviews aren’t perfect:
+
+Business logic: AI doesn’t know your business rules. It can’t tell if the logic is correct for your domain.
+
+Context: AI doesn’t know why you made certain decisions. It might flag something as wrong that’s intentionally that way.
+
+Style debates: AI will have opinions about formatting, naming, structure. Not all of them match your team’s style.
+
+False positives: AI sometimes flags things that aren’t actually problems.
+
+Use AI review as a first pass, not the only pass. It catches the obvious stuff so human reviewers can focus on business logic and context.
+
+Building Review Into Your Workflow
+
+Don’t save review for the end. Review as you go:
+
+A code example with 4 lines - see the article for details.
+
+AI review is cheap. Run it often.
+
+The Review Checklist
+
+Before any code goes to PR:
+
+A code example with 7 lines - see the article for details.
+
+Tomorrow
+
+Code reviewed. Tests written. But there’s a bug. Where is it?
+
+Tomorrow I’ll show you how to use AI as a debugger. Systematic bug hunting that narrows down the problem faster than printf debugging.
+
+Try This Today
+
+Take a piece of code you’re about to commit
+
+Run the security pass
+
+Run the edge case pass
+
+See what you missed
+
+Two passes will likely find something one pass missed. That’s the point. More lenses, more coverage, fewer bugs in production.
+
+That's it for Day 19. Join us tomorrow for Day 20. Thanks for listening to 31 Days of Vibe Coding.

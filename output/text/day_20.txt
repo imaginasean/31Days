@@ -1,0 +1,134 @@
+Title: Day 20: AI as Debugger
+Day: 20
+Date: Jan 20, 2026
+Characters: 4489
+Words: 740
+==================================================
+
+Welcome to Day 20 of 31 Days of Vibe Coding. Today's topic is: AI as Debugger.
+
+You know the drill. Something’s broken. You’re not sure where. You add a console.log. Then another. Then twelve more. You run it again. The bug doesn’t appear. You add more logs. Now it appears but the logs don’t help. You start guessing.
+
+This is debugging by wandering. It works eventually, but it’s slow and frustrating.
+
+Here’s what I’ve learned: AI is annoyingly good at debugging. Not because it’s smarter, but because it’s systematic. You describe the symptoms, AI lists the likely causes in order of probability, and you work through them methodically.
+
+While you’re guessing, AI is pattern matching against every bug it’s ever seen.
+
+Why AI Is Good at Debugging
+
+Debugging is pattern matching. You have a symptom. You need to find the cause. The space of possible causes is large.
+
+AI has seen millions of bugs. It recognizes patterns: “silently fails sometimes” often means race condition, async issue, or swallowed error. “Works locally but not in production” often means environment variables, database differences, or timing issues.
+
+When you describe a bug, AI immediately narrows to the most likely categories. Then it helps you test each one systematically.
+
+The Debugging Prompt
+
+Here’s the prompt that starts most debugging sessions:
+
+A code example with 20 lines - see the article for details.
+
+A Real Debugging Session
+
+Here’s how the card transfer bug went:
+
+Me:
+
+A code example with 18 lines - see the article for details.
+
+AI:
+
+A code example with 35 lines - see the article for details.
+
+The race condition hypothesis led me to add timestamp logging. Sure enough, I found cases where two transfers were within 50ms of each other. Both passed the check. Both tried to write. Only one succeeded. The other silently did nothing because the ownership had already changed.
+
+The Hypothesis-Test Loop
+
+Good debugging is scientific. Hypothesis, test, refine.
+
+A code example with 9 lines - see the article for details.
+
+This keeps the debugging focused. No more random changes hoping something works.
+
+Log Analysis
+
+When you have logs but can’t see the pattern:
+
+A code example with 15 lines - see the article for details.
+
+AI is good at spotting differences humans miss. Different order of operations. Missing log entries. Timing anomalies.
+
+Stack Trace Analysis
+
+When you have a stack trace but don’t understand it:
+
+A code example with 16 lines - see the article for details.
+
+The Rubber Duck With Context
+
+Sometimes you just need to explain the problem:
+
+A code example with 12 lines - see the article for details.
+
+AI asking you questions often reveals assumptions you didn’t realize you were making.
+
+Narrowing Down
+
+When the bug could be anywhere:
+
+A code example with 12 lines - see the article for details.
+
+Common Bug Patterns
+
+AI recognizes these patterns instantly:
+
+“Works sometimes” leads to Race condition, caching, timing issue
+
+“Works locally, fails in production” leads to Environment config, data volume, network latency
+
+“Worked yesterday, broken today” leads to Recent commit, dependency update, data change
+
+“First request works, subsequent fail” leads to State mutation, connection pool, memory leak
+
+“Works for me, fails for users” leads to Permissions, data differences, browser slash client differences
+
+Tell AI which pattern matches your bug, and it knows where to look.
+
+Adding Strategic Logging
+
+When you need more visibility:
+
+A code example with 14 lines - see the article for details.
+
+The Fix Verification Prompt
+
+Once you think you’ve found it:
+
+A code example with 11 lines - see the article for details.
+
+Debugging AI-Generated Bugs
+
+AI code has predictable bug patterns:
+
+A code example with 14 lines - see the article for details.
+
+Tomorrow
+
+Debugging is reactive. You find bugs after they exist. But what about bugs in production where you can’t just add console.log?
+
+Tomorrow I’ll cover production debugging: when it’s on fire and you need to find problems with only the observability you already have.
+
+Try This Today
+
+Think of a bug you recently spent too long finding
+
+Write up the initial prompt as if you were starting fresh
+
+See what AI suggests
+
+Notice how quickly AI narrows to likely categories. That systematic approach is what makes AI debugging faster than random guessing.
+
+Next time you hit a bug, start with AI instead of ending with it.
+
+That's it for Day 20. Join us tomorrow for Day 21. Thanks for listening to 31 Days of Vibe Coding.

@@ -1,0 +1,180 @@
+Title: Day 21: AI as Architect
+Day: 21
+Date: Jan 21, 2026
+Characters: 5843
+Words: 921
+==================================================
+
+Welcome to Day 21 of 31 Days of Vibe Coding. Today's topic is: AI as Architect.
+
+There’s a moment before you start building where everything is still possible. You could structure it this way or that way. Use this pattern or that pattern. Once you start, you’re committed. The architecture solidifies like concrete.
+
+AI makes implementation so fast that it’s tempting to skip this moment. Just start building, see what happens. But the architecture decisions you make (or don’t make) in that moment will haunt you for the life of the project.
+
+Here’s what I’ve started doing: before building anything significant, I describe my approach to AI and ask it to poke holes. What could go wrong? What will be painful to change later? What am I not thinking about?
+
+AI won’t make the decision for you. But it will stress-test your thinking before you pour the concrete.
+
+Why Architecture Decisions Matter More With AI
+
+AI makes implementation fast. That’s both the opportunity and the danger.
+
+When implementation was slow, architecture decisions got scrutiny. Committing to an approach meant weeks of work. You thought carefully before starting.
+
+When implementation takes hours, you might not think carefully at all. Just build it, see if it works. But the architectural problems are still there. You just hit them faster.
+
+Speed of implementation makes architecture review more important, not less.
+
+The Architecture Review Prompt
+
+Before starting anything significant:
+
+A code example with 16 lines - see the article for details.
+
+A Real Architecture Review
+
+I was planning to add a notifications system. Here was my initial approach:
+
+A code example with 7 lines - see the article for details.
+
+AI’s review:
+
+Strengths:
+
+Simple to implement
+
+Easy to understand
+
+Works for low scale
+
+What could go wrong:
+
+Polling every 30 seconds from 10,000 users = 333 requests slash second just for notifications
+
+Users with 10,000 notifications will have slow queries
+
+No way to push urgent notifications
+
+Polling even when no new notifications wastes resources
+
+Hard to change later:
+
+If you later need real-time, WebSocket integration will require significant frontend changes
+
+If you need to categorize or filter notifications, schema changes affect all existing data
+
+No notification preferences means no way to respect user choices
+
+Not thinking about:
+
+Notification cleanup (do you keep them forever?)
+
+Batch notifications (10 events in a minute = 10 notifications or 1?)
+
+Cross-device sync (read on phone, still shows on web?)
+
+Email slash push integration (this architecture doesn’t support it)
+
+Alternative approaches:
+
+Event-driven with WebSocket Events published to a queue Notification service consumes events, delivers via WebSocket Tradeoff: More complex, but real-time and scalable
+
+Events published to a queue
+
+Notification service consumes events, delivers via WebSocket
+
+Tradeoff: More complex, but real-time and scalable
+
+Hybrid polling with push for urgent Poll for routine notifications WebSocket channel for urgent ones Tradeoff: Two delivery mechanisms to maintain
+
+Poll for routine notifications
+
+WebSocket channel for urgent ones
+
+Tradeoff: Two delivery mechanisms to maintain
+
+Third-party service (Firebase, Pusher) Outsource the delivery infrastructure Tradeoff: Cost, dependency, but proven at scale
+
+Outsource the delivery infrastructure
+
+Tradeoff: Cost, dependency, but proven at scale
+
+The review didn’t tell me what to do. It showed me what I hadn’t considered. I still chose polling for MVP, but I designed the schema to support future migration to events.
+
+The Tradeoff Analysis Prompt
+
+When you’re deciding between approaches:
+
+A code example with 20 lines - see the article for details.
+
+The “What Could Go Wrong” Prompt
+
+For risk analysis:
+
+A code example with 18 lines - see the article for details.
+
+The Scalability Prompt
+
+When you need to think about growth:
+
+A code example with 14 lines - see the article for details.
+
+The Maintenance Prompt
+
+For long-term thinking:
+
+A code example with 13 lines - see the article for details.
+
+The Integration Analysis
+
+When your feature touches other systems:
+
+A code example with 14 lines - see the article for details.
+
+The Migration Strategy Prompt
+
+When you’re changing something that exists:
+
+A code example with 13 lines - see the article for details.
+
+When to Ask for Architecture Help
+
+Not every feature needs architecture review. Ask for help when:
+
+High impact: The feature is core to your product High complexity: Multiple components or services involved High uncertainty: You’re not sure the approach is right High cost of change: Changing later would be very expensive Long lifespan: This will be in production for years
+
+Skip it for small, isolated, easily-changed features.
+
+Architecture Review Checklist
+
+Before starting significant work:
+
+A code example with 10 lines - see the article for details.
+
+The Humbling Part
+
+AI often finds things I miss. Not because AI is smarter, but because AI has no ego.
+
+When I design something, I want it to be right. I’m biased toward my own approach. AI doesn’t care. It just analyzes the tradeoffs.
+
+That objectivity is valuable. It’s like having a team member who will always tell you the uncomfortable truth about your architecture.
+
+Tomorrow
+
+Architecture reviewed. Approach decided. But what happens when it’s 2am and production is on fire?
+
+Tomorrow I’ll cover production debugging: using AI when you’re under pressure and things are broken.
+
+Try This Today
+
+Think of a feature you’re planning to build
+
+Write up your proposed approach
+
+Run the architecture review prompt
+
+See what you hadn’t considered
+
+The best time for architecture review is before you write code. The second best time is before you write more code.
+
+That's it for Day 21. Join us tomorrow for Day 22. Thanks for listening to 31 Days of Vibe Coding.

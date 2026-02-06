@@ -1,0 +1,182 @@
+Title: Day 30: Managing Technical Debt When Shipping Fast
+Day: 30
+Date: Jan 30, 2026
+Characters: 4869
+Words: 797
+==================================================
+
+Welcome to Day 30 of 31 Days of Vibe Coding. Today's topic is: Managing Technical Debt When Shipping Fast.
+
+The code worked. The code was a mess.
+
+AI had generated features at unprecedented speed. Two months in, I had a product. I also had a codebase that scared me. Inconsistent patterns. Functions doing too much. Tests that passed but didn’t actually test anything. Comments that lied about what the code did.
+
+I’d traded velocity for debt. Now the debt was coming due.
+
+This is the dark side of vibe coding. Speed is addictive. Debt accumulates silently. Then one day you try to add a simple feature and it takes three days because everything is tangled.
+
+Managing debt isn’t about not having debt. It’s about having the right amount of debt and paying it down strategically.
+
+Why AI Code Accumulates Debt Faster
+
+AI code has specific debt patterns:
+
+Inconsistency: Each generation might use slightly different patterns. Small inconsistencies compound into chaos.
+
+Over-engineering: AI often generates more than you need. That extra code is debt you maintain forever.
+
+Shallow testing: AI writes tests that pass, but don’t actually verify behavior. You think you have coverage. You don’t.
+
+Missing context: AI doesn’t know why past decisions were made. It might undo intentional choices.
+
+Copy-paste sprawl: It’s easy to generate similar code instead of abstracting. Duplication is debt.
+
+The Debt Inventory Prompt
+
+Start by knowing what you have:
+
+A code example with 17 lines - see the article for details.
+
+Prioritizing Debt
+
+Not all debt is equal. Prioritize by:
+
+Impact on velocity: Does this debt slow down every feature? Fix it.
+
+Risk: Could this debt cause production issues? Fix it soon.
+
+Compounding: Will this debt get worse over time? Address before it spreads.
+
+Effort: How hard is it to fix? Sometimes quick wins are worth doing.
+
+A code example with 1 lines - see the article for details.
+
+High impact, high risk, compounding, low effort = fix immediately.
+
+Low impact, low risk, isolated, high effort = maybe never.
+
+The 20% Rule
+
+Reserve 20% of your time for debt reduction.
+
+Every week, every sprint, every cycle: 20% goes to making the codebase better.
+
+4 days on features, 1 day on debt
+
+4 features, 1 cleanup task
+
+Every PR improves one thing beyond its scope
+
+This isn’t optional. It’s investment. Skip it, and velocity drops over time.
+
+AI-Assisted Debt Paydown
+
+Use AI to fix what AI created:
+
+Pattern Consolidation
+
+A code example with 8 lines - see the article for details.
+
+Test Improvement
+
+A code example with 11 lines - see the article for details.
+
+Documentation Generation
+
+A code example with 9 lines - see the article for details.
+
+The Debt Log
+
+Track debt explicitly:
+
+A code example with 20 lines - see the article for details.
+
+Review this log weekly. Move items up as they become urgent.
+
+Prevention Strategies
+
+Better to not create debt than to pay it down:
+
+Pre-Generation Review
+
+Before asking AI to generate significant code:
+
+A code example with 7 lines - see the article for details.
+
+Post-Generation Cleanup
+
+After AI generates code, before committing:
+
+A code example with 12 lines - see the article for details.
+
+The PR Checklist
+
+Before every merge:
+
+A code example with 7 lines - see the article for details.
+
+Debt Sprints
+
+Sometimes you need focused cleanup:
+
+Every quarter, schedule a debt sprint. One week focused entirely on debt reduction.
+
+No new features
+
+Only cleanup, consolidation, testing, documentation
+
+Measure: lines deleted, patterns consolidated, test coverage increased
+
+One week of cleanup buys months of velocity.
+
+The Strangler Pattern for Legacy AI Code
+
+When you have AI-generated code that needs major improvement:
+
+Don’t rewrite all at once
+
+Build new code correctly alongside old
+
+Route new features to new code
+
+Gradually migrate old features
+
+Delete old code when nothing uses it
+
+AI can help:
+
+A code example with 7 lines - see the article for details.
+
+Signs You Have Too Much Debt
+
+Features take longer and longer
+
+Every change breaks something unrelated
+
+New developers can’t understand the code
+
+You avoid touching certain areas
+
+Tests pass but production breaks
+
+Simple bugs take hours to fix
+
+When you see these signs, stop features and pay down debt.
+
+Tomorrow
+
+Final day. You’ve learned tactics for AI-assisted development. Tomorrow we’ll build your personal playbook: the practices you’ll keep, the workflow you’ll use, the principles that guide your vibe coding.
+
+Try This Today
+
+Pick one area of your codebase that scares you
+
+Run the debt inventory prompt on it
+
+Fix one thing. Just one.
+
+Small, consistent debt payment beats occasional massive rewrites. Start today. Continue tomorrow. In a month, the scary area is manageable.
+
+Debt is normal. Unmanaged debt is the problem.
+
+That's it for Day 30. Join us tomorrow for Day 31. Thanks for listening to 31 Days of Vibe Coding.

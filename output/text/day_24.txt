@@ -1,0 +1,110 @@
+Title: Day 24: Deployment Automation: Let AI Generate the Scary Parts
+Day: 24
+Date: Jan 24, 2026
+Characters: 3072
+Words: 519
+==================================================
+
+Welcome to Day 24 of 31 Days of Vibe Coding. Today's topic is: Deployment Automation: Let AI Generate the Scary Parts.
+
+Migrations are scary.
+
+Not the code. The code is usually simple. It’s the stakes. Migrations run once. They touch production data. They can’t always be undone. Get it wrong, and you’re in trouble.
+
+Deployment scripts, rollback procedures, runbooks. Same story. You write them hoping you’ll never need them. You don’t test them because testing them is almost as scary as needing them.
+
+This is exactly the kind of work AI should help with. Not because AI writes perfect deployment scripts, but because AI writes first drafts that include the things you’d forget. Rollback steps. Verification queries. The edge cases that bite you when you’re already stressed.
+
+Having something to review beats staring at a blank file wondering what you’re forgetting.
+
+The Migration Generation Prompt
+
+For database migrations:
+
+A code example with 23 lines - see the article for details.
+
+A Real Migration Example
+
+I needed to add a status field to a trades table with millions of rows.
+
+My prompt:
+
+A code example with 10 lines - see the article for details.
+
+AI generated:
+
+A code example with 48 lines - see the article for details.
+
+The AI knew about batched updates, SKIP LOCKED , and the order of operations. Things I might have gotten wrong writing it myself.
+
+The Rollback Script Prompt
+
+For any deployment:
+
+A code example with 23 lines - see the article for details.
+
+The Deployment Checklist Prompt
+
+For complex deployments:
+
+A code example with 29 lines - see the article for details.
+
+The Runbook Prompt
+
+For when things go wrong:
+
+A code example with 15 lines - see the article for details.
+
+Infrastructure as Code
+
+When you need infrastructure:
+
+A code example with 22 lines - see the article for details.
+
+CI slash CD Pipeline Generation
+
+For deployment pipelines:
+
+A code example with 17 lines - see the article for details.
+
+The Pre-Deployment Verification Prompt
+
+Before you deploy:
+
+A code example with 16 lines - see the article for details.
+
+The Post-Deployment Verification Prompt
+
+After you deploy:
+
+A code example with 11 lines - see the article for details.
+
+Feature Flag Integration
+
+For safe rollouts:
+
+A code example with 11 lines - see the article for details.
+
+The Deployment Documentation Prompt
+
+For the future:
+
+A code example with 13 lines - see the article for details.
+
+Tomorrow
+
+You’ve deployed. The feature is live. But the code is messy. AI writes working code, but working doesn’t mean maintainable. Tomorrow I’ll show you how to refactor AI code from working to maintainable.
+
+Try This Today
+
+Think of a deployment you have coming up
+
+Run the deployment checklist prompt
+
+See what you forgot
+
+The checklist you generate won’t be perfect for your organization. But it’s a starting point. Customize it, save it, reuse it.
+
+The goal isn’t for AI to deploy for you. It’s for AI to help you not forget the boring but critical stuff.
+
+That's it for Day 24. Join us tomorrow for Day 25. Thanks for listening to 31 Days of Vibe Coding.

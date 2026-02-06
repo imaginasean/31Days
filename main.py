@@ -23,6 +23,7 @@ Usage:
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -180,6 +181,21 @@ def generate_audio(
     return generator.stats
 
 
+def clean_text_for_audio(text: str) -> str:
+    """Clean cached text for better audio output.
+    
+    Strips legacy [Code Example: ...] bracket markers and other
+    TTS-unfriendly artifacts from previously cached text files.
+    """
+    # Unwrap legacy [Code Example: ...] markers — keep description, drop brackets
+    text = re.sub(r"\[Code Example:\s*(.*?)\]", r"\1", text)
+    
+    # Remove any remaining square brackets (TTS tries to pronounce them)
+    text = text.replace("[", "").replace("]", "")
+    
+    return text
+
+
 def generate_from_cache(
     generator: AudioGenerator,
     days: list[int] = None,
@@ -205,6 +221,10 @@ def generate_from_cache(
         
         try:
             text, metadata = load_text(day, input_dir)
+            
+            # Clean up any TTS-unfriendly artifacts from cached text
+            text = clean_text_for_audio(text)
+            
             output_path = Path(output_dir) / f"day_{day:02d}.mp3"
             
             generator.generate_episode(
@@ -385,6 +405,11 @@ def main():
     
     # Handle different modes
     if args.from_cache:
+        if args.use_llm:
+            print("\nNote: --use-llm has no effect with --from-cache.")
+            print("  Cached text files already have code blocks replaced with summaries.")
+            print("  To regenerate with LLM summaries, re-run without --from-cache.")
+        
         # Generate from cached text files
         generator = create_generator()
         

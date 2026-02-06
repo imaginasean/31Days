@@ -1,0 +1,144 @@
+Title: Day 17: AI as SRE: Is This Code Operable?
+Day: 17
+Date: Jan 17, 2026
+Characters: 3908
+Words: 671
+==================================================
+
+Welcome to Day 17 of 31 Days of Vibe Coding. Today's topic is: AI as SRE: Is This Code Operable?.
+
+Imagine this. Your feature works perfectly in development. You ship it. A week later, something’s wrong. Users mention weird behavior. You check the logs.
+
+There are no logs.
+
+You check the metrics. There are no metrics. You check for errors. Nothing. The code is a black box. It’s doing something, but you have no idea what.
+
+This is the difference between code that works and code you can operate. AI is excellent at generating the first kind. It has no idea the second kind matters unless you tell it.
+
+Working code and operable code are different things. AI needs to be told to care about both.
+
+What Makes Code Operable
+
+Operable code answers these questions:
+
+Is it working? Can I tell at a glance if this feature is healthy?
+
+What’s happening? Can I see what the code is doing right now?
+
+What went wrong? When it fails, can I find out why?
+
+How do I fix it? Do I have the tools to diagnose and resolve issues?
+
+AI-generated code often works but fails all four questions. It’s optimized for functionality, not operability.
+
+The SRE Audit Prompt
+
+Here’s the prompt that catches operability gaps:
+
+A code example with 42 lines - see the article for details.
+
+A Real SRE Audit
+
+Here’s code AI generated for processing card trades:
+
+A code example with 29 lines - see the article for details.
+
+The SRE audit found:
+
+Observability Gaps:
+
+No logging at all. If this fails, you won’t know it ran.
+
+No metrics. You can’t track trade processing rate or success rate.
+
+Silent early return. If trade is missing or wrong status, nothing is logged.
+
+Failure Mode Issues:
+
+Partial failure possible. If it fails after transferring some cards, trade is in inconsistent state.
+
+No error handling. Database errors will crash silently.
+
+No indication of what failed or why.
+
+Debuggability Issues:
+
+Can’t trace which trades processed or failed.
+
+Can’t tell how long processing took.
+
+Can’t identify which card transfer failed in a multi-card trade.
+
+Recoverability Issues:
+
+No way to retry failed trades.
+
+No idempotency. Running twice could cause issues.
+
+No transaction. Partial state is possible.
+
+Fixed version:
+
+A code example with 89 lines - see the article for details.
+
+The fixed version tells you everything: what’s processing, what succeeded, what failed, how long it took, and why.
+
+The Logging Audit Prompt
+
+For focused logging review:
+
+A code example with 21 lines - see the article for details.
+
+The Metrics Audit Prompt
+
+For metrics coverage:
+
+A code example with 17 lines - see the article for details.
+
+The Failure Mode Prompt
+
+For comprehensive failure analysis:
+
+A code example with 20 lines - see the article for details.
+
+The Runbook Generation Prompt
+
+For operational documentation:
+
+A code example with 14 lines - see the article for details.
+
+The 3am Test
+
+For every piece of code, ask:
+
+A code example with 10 lines - see the article for details.
+
+If the answer to any question is “I don’t know,” the code isn’t ready for production.
+
+The Operability Checklist
+
+Before shipping:
+
+A code example with 10 lines - see the article for details.
+
+Building Operability Into Prompts
+
+Don’t audit after. Build it in from the start:
+
+A code example with 12 lines - see the article for details.
+
+Tomorrow
+
+You’ve audited for operability. Now who writes the tests? Tomorrow I’ll show you how to use AI as a test generator, creating comprehensive test suites that catch bugs before they reach the code you just made operable.
+
+Try This Today
+
+Take a piece of AI-generated code that’s in production
+
+Run the SRE audit prompt
+
+Ask: “If this broke at 3am, what would I wish I had?”
+
+The gap between what you have and what you’d wish for is your operability debt. Start paying it down before you get that 3am page.
+
+That's it for Day 17. Join us tomorrow for Day 18. Thanks for listening to 31 Days of Vibe Coding.

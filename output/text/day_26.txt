@@ -1,0 +1,118 @@
+Title: Day 26: Working Across Multiple Services With AI
+Day: 26
+Date: Jan 26, 2026
+Characters: 3296
+Words: 537
+==================================================
+
+Welcome to Day 26 of 31 Days of Vibe Coding. Today's topic is: Working Across Multiple Services With AI.
+
+The feature touched everything.
+
+Frontend components. Backend API endpoints. Database schema. Redis caching. Third-party integrations. A simple “add to wishlist” feature required changes in six different places.
+
+AI is great at generating code for one thing at a time. But real features aren’t one thing. They’re systems of things that need to work together. Types that need to match. Contracts that need to align. Changes that need to happen in the right order.
+
+This is where vibe coding gets tricky. You’re not just prompting for code. You’re orchestrating changes across a system.
+
+The Multi-Service Planning Prompt
+
+Start with the big picture:
+
+A code example with 16 lines - see the article for details.
+
+The Contract-First Approach
+
+Define the interfaces before the implementations:
+
+A code example with 12 lines - see the article for details.
+
+Example output:
+
+A code example with 41 lines - see the article for details.
+
+Now every service implementation references these contracts.
+
+The Backend Implementation Prompt
+
+With contracts defined:
+
+A code example with 20 lines - see the article for details.
+
+The Frontend Implementation Prompt
+
+Similarly for frontend:
+
+A code example with 19 lines - see the article for details.
+
+The Database Migration Prompt
+
+For schema changes:
+
+A code example with 10 lines - see the article for details.
+
+Keeping Types in Sync
+
+When types exist in multiple places:
+
+A code example with 17 lines - see the article for details.
+
+The Integration Test Prompt
+
+Testing across services:
+
+A code example with 16 lines - see the article for details.
+
+The Dependency Order Prompt
+
+When changes must happen in sequence:
+
+A code example with 16 lines - see the article for details.
+
+The Backward Compatibility Prompt
+
+When you can’t deploy everything at once:
+
+A code example with 15 lines - see the article for details.
+
+Coordinating Prompts Across Files
+
+When one prompt needs to inform another:
+
+A code example with 12 lines - see the article for details.
+
+The System Context Document
+
+For complex features, create a context document:
+
+A code example with 25 lines - see the article for details.
+
+Reference this document in every prompt for consistent context.
+
+The Cross-Service Debug Prompt
+
+When something isn’t working across services:
+
+A code example with 15 lines - see the article for details.
+
+The Feature Flag Prompt
+
+For gradual cross-service rollout:
+
+A code example with 11 lines - see the article for details.
+
+Tomorrow
+
+You’ve been writing a lot of prompts. Some work great. Some don’t. Tomorrow I’ll show you how to build a prompt library: capturing what works, organizing by task type, and never having to write the same prompt twice.
+
+Try This Today
+
+Think of a feature that spans multiple services
+
+Write out the contracts first (API shapes, types, schemas)
+
+Use those contracts in prompts for each service
+
+Starting with contracts forces you to think about the interfaces between services before you think about implementations. AI can help you maintain consistency across services, but only if you give it a consistent source of truth.
+
+That's it for Day 26. Join us tomorrow for Day 27. Thanks for listening to 31 Days of Vibe Coding.

@@ -1,0 +1,230 @@
+Title: Day 27: Building Your Prompt Library: Capture What Works
+Day: 27
+Date: Jan 27, 2026
+Characters: 4389
+Words: 711
+==================================================
+
+Welcome to Day 27 of 31 Days of Vibe Coding. Today's topic is: Building Your Prompt Library: Capture What Works.
+
+I wrote the same prompt three times last week.
+
+Each time I needed to generate tests, I wrote a new prompt from scratch. Each time it was slightly different. Each time I forgot something the previous version had.
+
+This is inefficient. When you find a prompt that works, save it. Categorize it. Reuse it. Stop reinventing prompts every time you need to do the same kind of task.
+
+Your prompt library is an investment. Build it once, benefit forever.
+
+What Goes in a Prompt Library
+
+Prompts that:
+
+You use more than once
+
+Took time to get right
+
+Work consistently well
+
+Apply to common tasks
+
+Don’t save:
+
+One-off prompts for unique situations
+
+Prompts that didn’t work
+
+Prompts that are just your project context
+
+Get the Starter Kit
+
+I’ve created a prompt library starter kit you can use right now:
+
+Or browse the templates directly: examples slash prompt-library
+
+Library Structure
+
+I organize by task type:
+
+A code example with 23 lines - see the article for details.
+
+Each file contains one prompt template with placeholders, an example, and variations.
+
+Prompt Template Format
+
+Each saved prompt should have:
+
+A code example with 6 lines - see the article for details.
+
+Generate a REST API endpoint.
+
+Context:
+
+Framework: {framework}
+
+Database: {database}
+
+Auth: {auth_method}
+
+Endpoint:
+
+Method: {method}
+
+Path: {path}
+
+Purpose: {purpose}
+
+Request body:
+
+{request_schema}
+
+Response:
+
+{response_schema}
+
+Include:
+
+Input validation
+
+Error handling
+
+Telemetry
+
+Tests
+
+Follow the patterns in {reference_file}.
+
+A code example with 7 lines - see the article for details.
+
+Building Your Library Incrementally
+
+Don’t create everything at once. Build as you go:
+
+Write a prompt for your current task
+
+It works well and produces good output
+
+Extract the template by replacing specifics with placeholders
+
+Save it in the appropriate category
+
+Next time , use the template instead of starting from scratch
+
+My Core Prompts
+
+Here are the prompts I use most often:
+
+Feature Generation
+
+A code example with 24 lines - see the article for details.
+
+Test Generation
+
+A code example with 18 lines - see the article for details.
+
+Code Review
+
+A code example with 16 lines - see the article for details.
+
+Debug
+
+A code example with 16 lines - see the article for details.
+
+Parameterizing Prompts
+
+Good templates have clear placeholders:
+
+Bad:
+
+A code example with 2 lines - see the article for details.
+
+Good:
+
+A code example with 8 lines - see the article for details.
+
+Clear placeholders remind you what to fill in.
+
+Prompt Composition
+
+Complex tasks combine multiple prompts:
+
+A code example with 27 lines - see the article for details.
+
+Version Controlling Your Prompts
+
+Your prompts are code. Version control them:
+
+Store in your repo or a dedicated prompts repo
+
+Commit changes with messages explaining improvements
+
+Tag versions that work well
+
+Branch for experiments
+
+Sharing With Your Team
+
+Prompt libraries multiply when shared:
+
+Central repo with team prompts
+
+Contributing guidelines for adding new prompts
+
+Review process for quality control
+
+Documentation on when to use what
+
+A team prompt library means everyone benefits from anyone’s discoveries.
+
+Evolving Your Prompts
+
+Prompts need maintenance:
+
+A code example with 13 lines - see the article for details.
+
+Track why prompts change. Learn from what didn’t work.
+
+The Prompt Development Loop
+
+Use a prompt
+
+Evaluate the output
+
+Identify what was missing or wrong
+
+Update the prompt
+
+Repeat
+
+Your prompts should get better over time.
+
+Quick Access
+
+Make your prompts easy to use:
+
+Keyboard shortcuts to insert templates
+
+Snippets in your editor
+
+CLI tool to cat prompts
+
+Browser bookmarks if using web UI
+
+Friction kills reuse. Make it effortless.
+
+Tomorrow
+
+You have prompts that work. You have a library. But how do you know AI is actually helping? Tomorrow I’ll cover measuring what matters: is AI making you faster, or just making you feel faster?
+
+Try This Today
+
+Think of a prompt you’ve written multiple times
+
+Extract it into a template
+
+Save it somewhere you’ll find it
+
+Use the template next time
+
+Start with one prompt. Add more as you encounter them. In a month, you’ll have a library that saves you real time.
+
+That's it for Day 27. Join us tomorrow for Day 28. Thanks for listening to 31 Days of Vibe Coding.

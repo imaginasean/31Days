@@ -14,14 +14,14 @@ ENV/
 # Output files
 output/audio/*.wav
 output/audio/*.aiff
-output/text/*.txt
+# output/text/*.txt
 
 # Piper voice models (large binary files)
 models/piper/*.onnx
 models/piper/*.json
 
 # LLM code summary cache
-cache/
+# cache/
 
 # Generation stats
 output/generation_stats.json

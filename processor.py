@@ -30,8 +30,10 @@ class ContentProcessor:
         "py": "Python",
         "javascript": "JavaScript",
         "js": "JavaScript",
+        "jsx": "JavaScript",
         "typescript": "TypeScript",
         "ts": "TypeScript",
+        "tsx": "TypeScript",
         "bash": "Bash",
         "sh": "shell",
         "shell": "shell",
@@ -221,73 +223,62 @@ class ContentProcessor:
             language: Detected programming language
             
         Returns:
-            A basic spoken description of what the code does
+            A natural, audio-friendly description of what the code does
         """
         # Get friendly language name
         lang_name = self.LANGUAGE_NAMES.get(language.lower(), language or "code")
-        
-        # Analyze the code to create a description
         lines = code_text.strip().split("\n")
         num_lines = len(lines)
         
-        # Try to determine what the code does based on patterns
-        description_parts = []
-        
-        # Check for common patterns
-        if "git " in code_text.lower():
-            description_parts.append(f"The following {lang_name} commands show")
-            if "commit" in code_text.lower():
-                description_parts.append("how to commit changes")
-            elif "checkout" in code_text.lower():
-                description_parts.append("how to switch branches")
-            elif "restore" in code_text.lower():
-                description_parts.append("how to restore files")
-            elif "diff" in code_text.lower():
-                description_parts.append("how to view changes")
-            elif "stash" in code_text.lower():
-                description_parts.append("how to stash changes")
-            else:
-                description_parts.append("Git operations")
-        elif "def " in code_text or "function " in code_text:
-            description_parts.append(f"The following {lang_name} code defines a function")
-            # Try to extract function name
-            func_match = re.search(r"(?:def|function)\s+(\w+)", code_text)
-            if func_match:
-                description_parts.append(f"called {func_match.group(1)}")
-        elif "class " in code_text:
-            description_parts.append(f"The following {lang_name} code defines a class")
-            class_match = re.search(r"class\s+(\w+)", code_text)
-            if class_match:
-                description_parts.append(f"called {class_match.group(1)}")
-        elif code_text.strip().startswith("#") or code_text.strip().startswith("//"):
-            # Looks like a template or configuration
-            description_parts.append(f"The following shows a {lang_name} template or example")
-        elif "import " in code_text or "from " in code_text or "require(" in code_text:
-            description_parts.append(f"The following {lang_name} code shows imports and")
-        else:
-            description_parts.append(f"The following {lang_name} example shows")
-        
-        # Add line count for longer blocks
-        if num_lines > 5:
-            description_parts.append(f"in about {num_lines} lines of code")
-        
-        # Create final description
-        if len(description_parts) == 1:
-            description = f"{description_parts[0]} a code example."
-        else:
-            description = " ".join(description_parts) + "."
-        
-        # For template-style code, try to extract key points
+        # For template-style code with markdown headers, extract key sections
         if "##" in code_text or "**" in code_text:
-            # Looks like a markdown template - extract headers
             headers = re.findall(r"(?:##\s*|^\*\*)([\w\s]+)(?:\*\*)?", code_text, re.MULTILINE)
             if headers:
-                sections = ", ".join(headers[:4])  # First 4 sections
+                sections = ", ".join(h.strip() for h in headers[:4])
                 if len(headers) > 4:
                     sections += ", and more"
-                description = f"The following template includes sections for: {sections}."
+                return f"Here is a template that includes sections for: {sections}."
         
-        return f"[Code Example: {description}]"
+        # Check for common patterns and build a natural sentence
+        if "git " in code_text.lower():
+            if "commit" in code_text.lower():
+                return f"Here we have {lang_name} commands showing how to commit changes."
+            elif "checkout" in code_text.lower():
+                return f"Here we have {lang_name} commands for switching branches."
+            elif "restore" in code_text.lower():
+                return f"Here we have {lang_name} commands for restoring files."
+            elif "diff" in code_text.lower():
+                return f"Here we have {lang_name} commands for viewing changes."
+            elif "stash" in code_text.lower():
+                return f"Here we have {lang_name} commands for stashing changes."
+            else:
+                return f"Here we have {lang_name} commands for Git operations."
+        
+        if "def " in code_text or "function " in code_text:
+            func_match = re.search(r"(?:def|function)\s+(\w+)", code_text)
+            if func_match:
+                return f"Next is a {lang_name} function called {func_match.group(1)}."
+            return f"Next is a {lang_name} function definition."
+        
+        if "class " in code_text:
+            class_match = re.search(r"class\s+(\w+)", code_text)
+            if class_match:
+                return f"Next is a {lang_name} class called {class_match.group(1)}."
+            return f"Next is a {lang_name} class definition."
+        
+        if code_text.strip().startswith("#") or code_text.strip().startswith("//"):
+            return f"Here is a {lang_name} template or configuration example."
+        
+        if "import " in code_text or "from " in code_text or "require(" in code_text:
+            return f"Here we have some {lang_name} imports and setup code."
+        
+        # Generic fallback with natural phrasing
+        if num_lines > 10:
+            return f"Here is a {lang_name} example spanning about {num_lines} lines."
+        else:
+            if lang_name == "code":
+                return "Here is a code example."
+            return f"Here is a {lang_name} code example."
     
     def _extract_text(self, soup: BeautifulSoup) -> str:
         """Extract text from soup, preserving paragraph structure."""
@@ -310,6 +301,12 @@ class ContentProcessor:
     
     def _clean_for_audio(self, text: str) -> str:
         """Clean text for better audio output."""
+        # Unwrap legacy [Code Example: ...] markers — keep the description, drop brackets
+        text = re.sub(r"\[Code Example:\s*(.*?)\]", r"\1", text)
+        
+        # Remove any remaining square brackets (TTS tries to pronounce them)
+        text = text.replace("[", "").replace("]", "")
+        
         # Remove URLs (they're not useful in audio)
         text = re.sub(r"https?://\S+", "", text)
         

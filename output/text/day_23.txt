@@ -1,0 +1,152 @@
+Title: Day 23: Asking AI for Edge Cases You'd Never Think Of
+Day: 23
+Date: Jan 23, 2026
+Characters: 4086
+Words: 684
+==================================================
+
+Welcome to Day 23 of 31 Days of Vibe Coding. Today's topic is: Asking AI for Edge Cases You'd Never Think Of.
+
+The bug report said it all: “Username displays as undefined undefined.”
+
+Somewhere in my code, I’d assumed every user had a first name and last name. Most do. But one user had only entered an email. No name at all. My concatenation code produced “undefined undefined” and displayed it proudly.
+
+I thought about names. I didn’t think about missing names.
+
+This is the edge case problem. You build for what you expect. You break on what you don’t expect. And there’s always something you don’t expect.
+
+AI has seen millions of edge cases. When you ask it what could break your code, it pulls from all of them. It thinks of the empty strings, the null values, the Unicode characters, the leap years, the timezone boundaries. The things you forget because you’re focused on making it work.
+
+The Edge Case Generation Prompt
+
+For any function:
+
+A code example with 19 lines - see the article for details.
+
+A Real Edge Case Analysis
+
+Here’s a simple function:
+
+A code example with 3 lines - see the article for details.
+
+AI’s edge case analysis:
+
+Empty slash Missing Values:
+
+user.firstName is undefined leads to “undefined Smith”
+
+user.lastName is undefined leads to “John undefined”
+
+Both undefined leads to “undefined undefined”
+
+Empty strings leads to “ “ (just a space)
+
+Whitespace only leads to “ “ (multiple spaces)
+
+Unicode and Special Characters:
+
+Name contains emoji leads to “John 🚀” (might display wrong)
+
+Right-to-left characters leads to Display order issues
+
+Very long names leads to UI overflow
+
+Names with quotes leads to “John O’Brien” (apostrophe might cause issues in certain contexts)
+
+Names with HTML leads to <script>alert()</script> (XSS if not escaped)
+
+Type Issues:
+
+user is null leads to TypeError
+
+user is undefined leads to TypeError
+
+firstName is a number leads to “123 Smith” (type coercion)
+
+Edge Cases in Valid Data:
+
+Single word name (like “Madonna”) leads to Unclear how to handle
+
+Hyphenated names leads to “Mary Jane Watson-Parker”
+
+Multiple middle names leads to Not handled
+
+Prefixes slash suffixes leads to “Dr. John Smith Jr.”
+
+A better implementation:
+
+A code example with 15 lines - see the article for details.
+
+The Input Validation Prompt
+
+For API endpoints:
+
+A code example with 21 lines - see the article for details.
+
+The State Machine Prompt
+
+For features with multiple states:
+
+A code example with 14 lines - see the article for details.
+
+Time and Date Edge Cases
+
+Time is always harder than you think:
+
+A code example with 17 lines - see the article for details.
+
+Concurrency Edge Cases
+
+When multiple things happen at once:
+
+A code example with 17 lines - see the article for details.
+
+The Failure Mode Prompt
+
+For integrations and external dependencies:
+
+A code example with 18 lines - see the article for details.
+
+The User Behavior Prompt
+
+Users do unexpected things:
+
+A code example with 20 lines - see the article for details.
+
+The Data Volume Prompt
+
+Scale reveals edge cases:
+
+A code example with 17 lines - see the article for details.
+
+Building Edge Cases Into Your Workflow
+
+Don’t wait until production. Ask for edge cases:
+
+During design: “What inputs could break this?” During implementation: “What am I not handling?” During review: “What edge cases should tests cover?” During testing: “What else should I test?”
+
+Make edge case thinking habitual.
+
+The Edge Case Checklist
+
+For any feature:
+
+A code example with 13 lines - see the article for details.
+
+Tomorrow
+
+You’ve found the edge cases. Now you need to deploy the fixes. Deployment is scary, especially with AI-generated code. Tomorrow I’ll show you how to use AI to generate deployment automation: migrations, rollback scripts, and runbooks.
+
+Try This Today
+
+Take a feature you built recently
+
+Run the edge case generation prompt
+
+Pick one edge case you didn’t handle
+
+Fix it
+
+There’s always at least one. Usually there are ten. Find them before your users do.
+
+That's it for Day 23. Join us tomorrow for Day 24. Thanks for listening to 31 Days of Vibe Coding.

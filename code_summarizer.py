@@ -23,24 +23,24 @@ class CodeSummarizer:
     CACHE_FILE = "cache/code_summaries.json"
     
     # System prompt for code summarization
-    SYSTEM_PROMPT = """You are summarizing code for a podcast. The listener cannot see the code and is driving, so they need clear, conversational descriptions.
+    SYSTEM_PROMPT = """You are briefly describing a code example for a podcast. The listener cannot see the code. Keep it short.
 
-Your task: Describe what the code does in 1-3 sentences.
+Your task: Describe what the code shows in ONE sentence. Be brief and factual. Do NOT analyze, interpret, or explain why the code exists or what it means in context.
 
-Guidelines:
-- Be specific but conversational, like you're explaining to a colleague
-- Mention the programming language naturally (e.g., "This Python function..." or "These bash commands...")
-- Explain the purpose and key details that matter
-- For shell/git commands, explain what each command does
-- Avoid spelling out variable names character by character
-- Don't include function signatures unless essential for understanding
-- Don't say "this code" at the start - vary your phrasing
-- Keep it concise - podcast listeners have limited attention
+Rules:
+- ONE sentence only. Never more.
+- Start with "Showing" or a similar brief lead-in
+- Just say what the code IS, not what it MEANS
+- Mention the language naturally if obvious
+- Do NOT speculate about the article or context
+- Do NOT add interpretation like "this is likely..." or "in the context of..."
 
-Examples of good summaries:
-- "Here we define a Python function that validates email addresses using a regex pattern, returning True if the format is valid."
-- "These git commands create a checkpoint: first staging all changes, then committing with a work-in-progress message so you can easily roll back if needed."
-- "The configuration object sets up the project context including the tech stack, file patterns, and testing framework preferences."
+Examples:
+- "Showing a simple HTML form with email and password fields and a save button."
+- "Showing git commands that stage all changes and commit with a work-in-progress message."
+- "Showing a Python function that validates email addresses using a regex pattern."
+- "Showing a prompt template that asks an AI to build a feature using existing design system components."
+- "Showing a React dashboard component with stat cards, a chart placeholder, and an activity feed."
 """
 
     def __init__(
@@ -106,10 +106,12 @@ Examples of good summaries:
     def _save_cache(self):
         """Save cached summaries to disk."""
         cache_path = Path(self.CACHE_FILE)
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        with open(cache_path, "w", encoding="utf-8") as f:
-            json.dump(self.cache, f, indent=2, ensure_ascii=False)
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(cache_path, "w", encoding="utf-8") as f:
+                json.dump(self.cache, f, indent=2, ensure_ascii=False)
+        except (IOError, OSError) as e:
+            print(f"  Warning: Could not save code summary cache: {e}")
     
     def _hash_code(self, code: str, language: str) -> str:
         """Generate a hash for a code block."""
@@ -158,8 +160,12 @@ Examples of good summaries:
         except Exception as e:
             self.stats["errors"] += 1
             print(f"    Warning: LLM summarization failed: {e}")
-            # Fall back to basic description
-            return self._fallback_summary(code, language)
+            fallback = self._fallback_summary(code, language)
+            # Cache fallback so we don't retry the API on every run
+            if self.cache_enabled:
+                self.cache[cache_key] = fallback
+                self._save_cache()
+            return fallback
     
     def _call_llm(self, code: str, language: str, context: str) -> str:
         """Call Claude API to summarize code."""
@@ -167,15 +173,12 @@ Examples of good summaries:
         
         # Build the user prompt
         lang_str = language if language else "code"
-        user_prompt = f"Summarize this {lang_str} for a podcast listener:\n\n```{language}\n{code}\n```"
-        
-        if context:
-            user_prompt += f"\n\nContext: This appears in an article about {context}."
+        user_prompt = f"Briefly describe this {lang_str} in one sentence:\n\n```{language}\n{code}\n```"
         
         # Call the API
         message = client.messages.create(
             model=self.model,
-            max_tokens=256,
+            max_tokens=100,
             system=self.SYSTEM_PROMPT,
             messages=[
                 {"role": "user", "content": user_prompt}
@@ -279,6 +282,16 @@ What's next: [current task]
         
         print(f"Summary: {summary}")
         print()
+    
+    # Verify cache: same input again must hit cache and return same summary
+    first = test_cases[0]
+    summary1 = summarizer.summarize(code=first["code"], language=first["language"], context=first["context"])
+    hits_before = summarizer.stats["cache_hits"]
+    summary2 = summarizer.summarize(code=first["code"], language=first["language"], context=first["context"])
+    hits_after = summarizer.stats["cache_hits"]
+    assert summary1 == summary2, "Same input should return same summary"
+    assert hits_after > hits_before, "Second call should be a cache hit"
+    print("Cache check: same input returned same summary (cache hit).")
     
     print("Stats:", summarizer.get_stats())
 

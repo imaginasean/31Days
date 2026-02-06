@@ -1,0 +1,132 @@
+Title: Day 18: AI as Test Generator
+Day: 18
+Date: Jan 18, 2026
+Characters: 4094
+Words: 706
+==================================================
+
+Welcome to Day 18 of 31 Days of Vibe Coding. Today's topic is: AI as Test Generator.
+
+I used to skip tests.
+
+Not intentionally. But when AI generates a feature in 10 minutes, spending an hour writing tests feels backwards. The feature works. I tested it manually. Ship it.
+
+Then the bugs started. Edge cases I didn’t think to test. Regressions when I changed something else. The “it worked on my machine” problems that only appeared in production.
+
+Now AI writes my tests too. The same tool that generates the feature generates the tests that verify it. Often AI thinks of edge cases I wouldn’t have considered. Empty arrays. Null values. Unicode characters. Concurrent access.
+
+The trick is knowing how to ask.
+
+Why AI-Generated Tests Are Different
+
+When you write tests manually, you test what you thought about. When AI writes tests, it tests what the code does. These aren’t the same thing.
+
+You might forget to test the empty array case. AI sees the code handles arrays and generates tests for empty, one element, many elements.
+
+You might not think about Unicode. AI sees string handling and tests with emoji, special characters, different alphabets.
+
+The limitation: AI also doesn’t know your business logic. It tests what the code does, not what the code should do. You need to guide it.
+
+The Basic Test Generation Prompt
+
+Here’s the prompt that generates useful tests:
+
+A code example with 19 lines - see the article for details.
+
+A Real Example
+
+Here’s a function AI generated:
+
+A code example with 30 lines - see the article for details.
+
+Here’s what AI generated for tests:
+
+A code example with 100 lines - see the article for details.
+
+Notice what AI caught: transfer to self, special characters, SQL injection attempts, empty strings. These are edge cases I might not have written manually.
+
+The Edge Case Prompt
+
+When you want AI to dig deeper on edge cases:
+
+A code example with 18 lines - see the article for details.
+
+Integration Test Generation
+
+Unit tests verify functions. Integration tests verify flows:
+
+A code example with 19 lines - see the article for details.
+
+API Endpoint Tests
+
+For REST APIs, be specific about what to test:
+
+A code example with 19 lines - see the article for details.
+
+The Test Pyramid Prompt
+
+Different levels of testing catch different problems:
+
+A code example with 22 lines - see the article for details.
+
+When AI Tests Go Wrong
+
+AI-generated tests have failure modes:
+
+Testing implementation, not behavior:
+
+A code example with 5 lines - see the article for details.
+
+Tautological tests:
+
+A code example with 5 lines - see the article for details.
+
+Missing assertions:
+
+A code example with 5 lines - see the article for details.
+
+Tell AI to avoid these:
+
+A code example with 5 lines - see the article for details.
+
+Coverage-Focused Generation
+
+When you need to hit coverage targets:
+
+A code example with 14 lines - see the article for details.
+
+Testing AI Code vs Manual Code
+
+AI code often needs more tests than code you write yourself. Why?
+
+You understand the code you write. You know the edge cases because you thought through them while writing. AI code is a black box. You need tests to understand what it actually does.
+
+My rule: if AI wrote it, it needs twice the test coverage I’d write for my own code.
+
+Test Maintenance
+
+AI generates tests, but you maintain them. Make them maintainable:
+
+A code example with 15 lines - see the article for details.
+
+Tomorrow
+
+You’ve generated tests. But who reviews the code? Manual code review is slow. AI can do multiple review passes faster than you can do one.
+
+Tomorrow I’ll show you how to use AI as a code reviewer. Multiple passes, different focuses, comprehensive feedback.
+
+Try This Today
+
+Take a function AI generated recently
+
+Ask AI to generate tests for it
+
+Run the tests
+
+See if any fail
+
+Failing tests from AI-generated test suites often reveal bugs in AI-generated code. The same tool that created the bug might write the test that catches it.
+
+That’s not irony. That’s leverage.
+
+That's it for Day 18. Join us tomorrow for Day 19. Thanks for listening to 31 Days of Vibe Coding.

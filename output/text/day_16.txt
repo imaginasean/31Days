@@ -1,0 +1,198 @@
+Title: Day 16: AI as Security Auditor
+Day: 16
+Date: Jan 16, 2026
+Characters: 5926
+Words: 966
+==================================================
+
+Welcome to Day 16 of 31 Days of Vibe Coding. Today's topic is: AI as Security Auditor.
+
+Here’s a fun exercise. Ask AI to build you a login endpoint. Don’t mention security. Just say “build a login endpoint.”
+
+You’ll get working code. It’ll authenticate users. It’ll return tokens. It’ll feel done.
+
+Now ask AI to review that same code for security vulnerabilities. Watch what happens. Suddenly AI finds missing rate limiting, token expiration issues, information leakage in error messages. The same tool that wrote the code will happily tear it apart.
+
+That’s the trap with AI-generated code. It optimizes for what you ask. Ask for functionality, you get functionality. Security isn’t included unless you ask for it.
+
+The good news: AI is remarkably good at finding vulnerabilities. You just have to ask it to look.
+
+Why AI Misses Security Issues
+
+AI optimizes for what you ask. If you ask for a login endpoint, AI generates a login endpoint. It focuses on making the login work. Authentication, session management, redirects.
+
+Security is different. Security means thinking about how someone could break the login. What happens with malformed input? What if someone tries a million passwords? What if they manipulate the session token?
+
+AI doesn’t automatically think adversarially. It thinks constructively. Build the feature. Make it work. Ship it.
+
+You have to explicitly switch AI into adversarial mode.
+
+The Security Audit Prompt
+
+Here’s the prompt that changed how I review AI-generated code:
+
+A code example with 23 lines - see the article for details.
+
+The key phrase is “assuming the user is actively trying to break it.” This flips AI from construction mode to destruction mode.
+
+A Real Audit
+
+Let me show you what this looks like. Here’s an endpoint AI generated for me:
+
+A code example with 13 lines - see the article for details.
+
+Looks fine, right? Card ID comes in, we look it up, we return it. Simple.
+
+Here’s what the security audit found:
+
+Issue 1: Insecure Direct Object Reference (High)
+
+Anyone can access any card by guessing or enumerating card IDs. There’s no check that the requesting user owns or has permission to view this card.
+
+Exploit: Iterate through card IDs to harvest all cards in the system.
+
+Fix:
+
+A code example with 21 lines - see the article for details.
+
+Issue 2: Sensitive Data Exposure (Medium)
+
+The include: { owner: true } returns all owner fields, potentially including email, password hash, or other sensitive data.
+
+Exploit: Access any card to harvest owner information.
+
+Fix: Select only the fields needed (shown above with select ).
+
+Issue 3: Missing Rate Limiting (Medium)
+
+No rate limiting allows an attacker to enumerate all card IDs rapidly.
+
+Fix: Add rate limiting middleware:
+
+A code example with 5 lines - see the article for details.
+
+Issue 4: Insufficient Logging (Low)
+
+No logging of access attempts. If someone is enumerating cards, you won’t know.
+
+Fix:
+
+A code example with 5 lines - see the article for details.
+
+Four issues in eight lines of code. All of them real. None of them obvious when you’re just checking if the feature works.
+
+The OWASP Checklist Prompt
+
+For comprehensive coverage, I use OWASP categories as a framework:
+
+A code example with 17 lines - see the article for details.
+
+This systematic approach catches things the general prompt might miss.
+
+Authentication-Specific Audits
+
+Authentication code needs extra scrutiny. Here’s my auth-specific prompt:
+
+A code example with 28 lines - see the article for details.
+
+API-Specific Audits
+
+APIs have their own vulnerability patterns:
+
+A code example with 27 lines - see the article for details.
+
+Database Query Audits
+
+Database interactions are injection hotspots:
+
+A code example with 15 lines - see the article for details.
+
+The Multi-Pass Approach
+
+One security pass isn’t enough. Different passes catch different issues.
+
+Pass 1: Injection and Input Handling
+
+A code example with 3 lines - see the article for details.
+
+Pass 2: Authentication and Authorization
+
+A code example with 3 lines - see the article for details.
+
+Pass 3: Data Exposure
+
+A code example with 3 lines - see the article for details.
+
+Pass 4: Infrastructure and Configuration
+
+A code example with 3 lines - see the article for details.
+
+Running four focused passes catches more than one broad pass.
+
+When to Audit
+
+Not every line of code needs a security audit. Focus on:
+
+Always audit:
+
+Authentication and authorization code
+
+Payment and financial operations
+
+User data handling
+
+API endpoints exposed to the internet
+
+File uploads and downloads
+
+Admin functionality
+
+Audit periodically:
+
+Internal APIs
+
+Background jobs
+
+Database migrations
+
+Light review:
+
+UI components without data handling
+
+Pure utility functions
+
+Test code
+
+Building Security Into Prompts
+
+Prevention beats detection. Include security requirements in your original prompts:
+
+A code example with 9 lines - see the article for details.
+
+When security is in the original prompt, AI builds it in rather than bolting it on.
+
+The Security Checklist
+
+Before any AI-generated code goes to production, run through this:
+
+A code example with 10 lines - see the article for details.
+
+Tomorrow
+
+Security auditing is one lens. But what about code that’s secure but impossible to operate? AI writes code that works in development but gives you nothing when it breaks at 3am.
+
+Tomorrow I’ll show you how to use AI as an SRE. Auditing code for observability, debuggability, and operational readiness before you’re paged in the middle of the night.
+
+Try This Today
+
+Take a piece of AI-generated code that handles user input
+
+Run the security audit prompt against it
+
+See what it finds
+
+You’ll probably be surprised. I was.
+
+The code that “worked fine” in testing might have vulnerabilities waiting to be exploited. Better to find them now than in your incident report.
+
+That's it for Day 16. Join us tomorrow for Day 17. Thanks for listening to 31 Days of Vibe Coding.

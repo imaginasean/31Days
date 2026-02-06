@@ -1,0 +1,278 @@
+Title: Day 7: Context Management
+Day: 7
+Date: Jan 7, 2026
+Characters: 9236
+Words: 1508
+==================================================
+
+Welcome to Day 7 of 31 Days of Vibe Coding. Today's topic is: Context Management.
+
+It’s Tuesday. You’re building a search feature. You and Claude spent two hours yesterday setting up the database schema, discussing query optimization, and implementing the basic endpoint. Good progress.
+
+You open a new chat today. “Continue working on the search feature.”
+
+Claude responds: “I’d be happy to help with the search feature. What database are you using? What’s the current state of the implementation? What should the search endpoint return?”
+
+All the context from yesterday is gone. Claude doesn’t remember the conversation. Doesn’t remember the decisions. You’re starting over.
+
+This happens to everyone. AI conversations don’t persist. Every new chat is a blank slate. And even within a single conversation, context degrades as the chat grows longer.
+
+Managing context is the difference between productive AI sessions and frustrating reruns.
+
+The Context Problem
+
+AI has two limitations that create the context problem.
+
+No memory between conversations. When you close a chat and open a new one, everything is gone. Every decision. Every file discussed. Every pattern established. Fresh start.
+
+Degrading attention within conversations. AI models have context windows. They can hold a certain amount of text. As your conversation grows, earlier messages get less attention. By message 50, the AI might have forgotten what you discussed in message 5.
+
+Both problems get worse on complex features. More decisions to track. More files to reference. More context that matters.
+
+When to Start Fresh
+
+Sometimes you should start a new conversation. Sometimes you should continue. Knowing when to do which matters.
+
+Start fresh when:
+
+The conversation has gone over 30-40 messages
+
+AI is repeating itself or contradicting earlier statements
+
+You’re changing topics (new feature, different file, unrelated task)
+
+AI is hallucinating things that don’t exist
+
+Quality is noticeably declining
+
+You’re returning after a break (next day, after lunch)
+
+Continue when:
+
+You’re in the middle of implementing something
+
+The conversation is short and focused
+
+AI is producing good results
+
+You’re iterating on the same piece of code
+
+Context is fresh and accurate
+
+The default should be starting fresh more often than you think. A clean slate with good context beats a long conversation with degraded attention.
+
+What Context to Include
+
+When you start a new conversation (or provide a substantial update), include these categories:
+
+1. Project Context
+
+What are you building? What tech stack? What patterns do you use?
+
+A code example with 5 lines - see the article for details.
+
+This doesn’t change much. Keep it in a file you can paste.
+
+2. Session Context
+
+What have you been working on? What decisions have been made?
+
+A code example with 12 lines - see the article for details.
+
+This changes per session. Update it as you go. You can even have your AI update it for you.
+
+3. Relevant Code
+
+The actual code AI needs to see. Not everything. Just what’s relevant.
+
+A code example with 5 lines - see the article for details.
+
+AI works better when it can see the code, not just hear about it.
+
+4. Current Task
+
+What specifically are you trying to do right now?
+
+A code example with 4 lines - see the article for details.
+
+Be specific. Not “improve search” but “add fuzzy matching with pg_trgm.”
+
+The Context Template
+
+Here’s the template I use when starting a session:
+
+A code example with 18 lines - see the article for details.
+
+It takes 5 minutes to write. It saves 30 minutes of re-explaining.
+
+Maintaining Context During Long Sessions
+
+Even within a single conversation, context can drift. Here’s how to keep it sharp.
+
+Summarize periodically. Every 10-15 messages, summarize where you are.
+
+A code example with 4 lines - see the article for details.
+
+This refreshes AI’s attention on the important points.
+
+Reference specific decisions when relevant. Instead of “use the pattern we discussed,” say “use the cursor-based pagination pattern from message 12.”
+
+AI can look back, but it helps to point to exactly what you mean.
+
+Keep scope narrow. Don’t let conversations sprawl across multiple features. One feature per conversation. Start fresh for the next feature.
+
+Explicitly close topics. When you finish something, say so.
+
+A code example with 1 lines - see the article for details.
+
+This signals to AI that pagination context can be deprioritized.
+
+Handling Day-to-Day Continuity
+
+The biggest context challenge is picking up where you left off. Tuesday’s progress needs to be available on Wednesday.
+
+Option 1: Document as you go
+
+Keep a running document with decisions and status. Have your agent update it at the end of each session.
+
+A code example with 20 lines - see the article for details.
+
+Tomorrow, paste this document into your new conversation. AI has full context immediately.
+
+Option 2: GitHub Issues as context
+
+If you’re using GitHub Issues (from Day 2), the issue itself provides context.
+
+A code example with 6 lines - see the article for details.
+
+The issue is the source of truth. Your context update is just current status.
+
+Option 3: Let AI help rebuild context
+
+At the start of a new session:
+
+A code example with 10 lines - see the article for details.
+
+AI reads your code and reconstructs the context. You verify it understood correctly. Then you continue.
+
+This is slower but useful when you don’t have documentation.
+
+Context for Different Scenarios
+
+Scenario: Continuing yesterday’s work
+
+A code example with 14 lines - see the article for details.
+
+Scenario: Starting a new feature
+
+A code example with 13 lines - see the article for details.
+
+Scenario: Debugging a problem
+
+A code example with 15 lines - see the article for details.
+
+Scenario: Code review
+
+A code example with 14 lines - see the article for details.
+
+Red Flags That Context Is Lost
+
+Watch for these signs that AI has lost context:
+
+Asking questions you already answered
+
+Using different variable names than established
+
+Suggesting patterns that contradict earlier decisions
+
+Generating code that doesn’t match your tech stack
+
+Confidently describing code that doesn’t exist
+
+When you see these, don’t keep going. Either refresh context with a summary or start a new conversation.
+
+The 30-Message Rule
+
+As a rough guideline: consider starting fresh after 30 messages.
+
+This isn’t a hard rule. Some conversations stay coherent for 50+ messages. Some drift after 15. But 30 is a useful checkpoint.
+
+At message 30, ask yourself:
+
+Is AI still tracking the full context?
+
+Are responses as good as they were at the start?
+
+Would a fresh start with good context be clearer?
+
+Usually the answer is yes, start fresh.
+
+Building Your Context Habit
+
+Context management isn’t exciting. It feels like overhead. But it’s the difference between productive AI sessions and frustrating ones.
+
+Here’s the habit:
+
+Start every session with context. Even if it takes 5 minutes to write. Especially if it takes 5 minutes to write.
+
+Start every session with context. Even if it takes 5 minutes to write. Especially if it takes 5 minutes to write.
+
+Document decisions as you make them. Not after. During. Keep a running log.
+
+Document decisions as you make them. Not after. During. Keep a running log.
+
+Summarize before stepping away. End of day. Before lunch. Before a meeting. Capture where you are.
+
+Summarize before stepping away. End of day. Before lunch. Before a meeting. Capture where you are.
+
+Start fresh more often. When in doubt, new conversation with good context.
+
+Start fresh more often. When in doubt, new conversation with good context.
+
+Let AI help. Ask AI to summarize, to read files, to verify understanding.
+
+Let AI help. Ask AI to summarize, to read files, to verify understanding.
+
+The goal is never losing the thread. Never starting from scratch. Always being able to pick up exactly where you left off.
+
+Week 1 Complete
+
+You’ve made it through the first week.
+
+Day 1: What vibe coding is and why it works.
+
+Day 2: Using GitHub Issues as your AI’s product backlog.
+
+Day 3: Component libraries that teach AI your design system.
+
+Day 4: Observability first, so you know when AI code breaks.
+
+Day 5: The five-part prompting pattern that gets results.
+
+Day 6: Breaking features into phases for incremental delivery.
+
+Day 7: Managing context across sessions.
+
+These are the fundamentals. The foundation for everything that follows.
+
+Next week, we go tactical. What to do when AI goes down a rabbit hole. Using Git as your undo button. Agent configuration that encodes your standards. Teaching AI your patterns through examples.
+
+The foundation is set. Now we build on it.
+
+Try This Today
+
+Create a context template for your project. Include:
+
+Project context (tech stack, patterns, key files)
+
+Session context template (current work, decisions, status)
+
+Relevant files section (what to paste for different features)
+
+Save it somewhere accessible. Use it to start your next AI session.
+
+Notice how much smoother the conversation goes when AI has context from the start.
+
+That’s the power of managing context deliberately instead of hoping AI figures it out.
+
+That's it for Day 7. Join us tomorrow for Day 8. Thanks for listening to 31 Days of Vibe Coding.

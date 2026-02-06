@@ -1,0 +1,146 @@
+Title: Day 11: Teaching AI Your Patterns With Examples
+Day: 11
+Date: Jan 11, 2026
+Characters: 6019
+Words: 983
+==================================================
+
+Welcome to Day 11 of 31 Days of Vibe Coding. Today's topic is: Teaching AI Your Patterns With Examples.
+
+Back on Day 3, I showed you how to create a design system reference so AI generates UI that matches your application. The idea was simple: instead of describing what you want, show AI an example of what good looks like.
+
+That concept doesn’t just apply to UI.
+
+Every developer has patterns. The way you structure services. How you handle errors. Where you put validation logic. Your naming conventions. The shape of your test files. These patterns accumulate over years of writing code, debugging production issues, and learning what works for you.
+
+AI doesn’t know your patterns. It knows patterns from the internet. From Stack Overflow answers. From GitHub repositories. From training data that represents how millions of developers write code.
+
+That’s the problem. Without guidance, your AI agent will do what it thinks is right in the moment. It’ll generate perfectly reasonable code that looks nothing like the rest of your codebase.
+
+Generic Code vs Your Code
+
+Ask AI to build a service without any context, and you’ll get something like this:
+
+A code example with 11 lines - see the article for details.
+
+This code works. It’s also generic. Maybe you use dependency injection. Maybe you separate database operations into private methods. Maybe you have specific error handling that logs to your telemetry system instead of console.log. Maybe you validate inputs before querying.
+
+AI doesn’t know any of that unless you tell it.
+
+You could describe your patterns in words:
+
+A code example with 5 lines - see the article for details.
+
+This is better than nothing. But “standard error handling pattern with telemetry” means different things to different developers. There’s interpretation. Room for AI to guess wrong.
+
+Here’s what works better: show it an existing service and say “match this.”
+
+The Reference Pattern
+
+Find a file in your codebase that represents your patterns well. Not average code. Your cleanest, most pattern-compliant code. The file you’d point a new team member to and say “do it like this.”
+
+Then reference it explicitly:
+
+A code example with 10 lines - see the article for details.
+
+Point to specific patterns if the file is long. AI can read the whole file but benefits from knowing what matters.
+
+What Patterns Are Worth Teaching?
+
+Not everything needs a reference example. Save this technique for patterns that:
+
+Repeat across your codebase. If you have 20 services that all follow the same structure, showing AI one example pays off on the other 19.
+
+Are easy to get wrong. Error handling, logging, validation. The stuff that’s boring to write but critical to get right.
+
+Define your codebase’s character. The patterns that make your code feel like your code. When someone opens a file, they should know immediately they’re in your codebase.
+
+AI consistently misses. If you’ve described something twice and AI still gets it wrong, stop describing. Start showing.
+
+Different Types of References
+
+Service Structure
+
+A code example with 11 lines - see the article for details.
+
+Route Patterns
+
+A code example with 14 lines - see the article for details.
+
+Test Structure
+
+A code example with 16 lines - see the article for details.
+
+Component Patterns
+
+A code example with 15 lines - see the article for details.
+
+Making Your Best Code Easy to Reference
+
+Some files become your go-to references. Make them good:
+
+Keep them clean. Your reference files are templates. They should be well-structured and exemplary.
+
+Keep them current. When patterns evolve, update reference files first. They’re the source of truth.
+
+Keep them discoverable. Mention them in CLAUDE.md:
+
+A code example with 8 lines - see the article for details.
+
+Now AI knows where to look without you specifying each time.
+
+The Pattern Library Approach
+
+Some teams create explicit pattern files that aren’t part of the running application. Just templates:
+
+A code example with 5 lines - see the article for details.
+
+These files include comments explaining the pattern:
+
+A code example with 39 lines - see the article for details.
+
+Reference these in prompts:
+
+A code example with 1 lines - see the article for details.
+
+When AI Misses the Pattern
+
+Sometimes AI reads the example but still misses something. Be specific about the mismatch:
+
+A code example with 10 lines - see the article for details.
+
+Point to the specific mismatch. AI can fix targeted issues better than vague “make it match.”
+
+Why Examples Beat Descriptions
+
+When you describe a pattern in words, there’s interpretation. “Use dependency injection” could mean constructor injection, property injection, or a service locator. “Handle errors properly” means different things to every developer.
+
+When you show an example, there’s no interpretation. The code is the spec. AI sees exactly what you mean.
+
+This is the same principle from Day 3 with the design system. AI is better at reading code than reading prose. Code shows. Documentation describes. Showing wins.
+
+Tomorrow
+
+Your AI knows your standards (Day 10) and your patterns (today). But what about the mistakes it keeps making? The same wrong assumptions. The same bad habits.
+
+Tomorrow I’ll show you how to build a “common mistakes” file. Document the mistakes once, reference it in prompts, stop repeating corrections.
+
+Try This Today
+
+Find your best service, component, or route file. The one that exemplifies your patterns.
+
+Ask AI to build something similar: “Create X following the pattern in Y”
+
+Compare the output to your original. Did AI match the structure?
+
+Note what matched and what didn’t.
+
+Refine your prompt to call out specific patterns that matter.
+
+The first time you see AI perfectly match your codebase style, you’ll understand why examples beat descriptions.
+
+It’s the difference between “use my patterns” and “use these patterns, exactly, see this file.”
+
+Specificity wins.
+
+That's it for Day 11. Join us tomorrow for Day 12. Thanks for listening to 31 Days of Vibe Coding.

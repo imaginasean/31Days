@@ -1,0 +1,266 @@
+Title: Day 10: Agent Configuration - Set Your Standards Once
+Day: 10
+Date: Jan 10, 2026
+Characters: 7190
+Words: 1139
+==================================================
+
+Welcome to Day 10 of 31 Days of Vibe Coding. Today's topic is: Agent Configuration - Set Your Standards Once.
+
+Every conversation started the same way.
+
+“We’re using Node dot js with Express. TypeScript strict mode. PostgreSQL database. Prisma ORM. Jest for testing. Use the service layer pattern. Always add error handling. Always add logging. Format with Prettier. Use OpenTelemetry for observability, exported to Dynatrace.”
+
+That’s 50 words I typed at the start of every single chat. Sometimes I’d forget something. Then Claude would generate JavaScript instead of TypeScript. Or skip the logging. Or use a different testing framework.
+
+Then I discovered agent configuration files.
+
+CLAUDE.md. Or .cursorrules. Or custom instructions in ChatGPT. Every AI tool has some way to set persistent context that applies to every conversation.
+
+Now I set my standards once. Every session inherits them. No more repetitive setup. No more forgotten requirements.
+
+What Agent Configuration Does
+
+Agent configuration is context that persists across conversations. Instead of telling AI your setup every time, you tell it once. That configuration loads automatically at the start of each session.
+
+Think of it as your project’s instruction manual for AI. Tech stack. Coding standards. File structure. Common patterns. Things to avoid.
+
+When you start a new conversation, AI already knows:
+
+What language and framework you use
+
+Where files should go
+
+How to handle errors
+
+What patterns to follow
+
+What mistakes to avoid
+
+You skip the setup and go straight to the work.
+
+CLAUDE dot md for Claude Code
+
+If you’re using Claude Code, create a file called CLAUDE dot md in your project root. Claude reads this automatically at the start of every session.
+
+Here’s what mine looks like:
+
+A code example with 10 lines - see the article for details.
+
+server/
+
+routes/ # Express route handlers
+
+services/ # Business logic
+
+models/ # Prisma schema and types
+
+middleware/ # Express middleware
+
+utils/ # Shared utilities
+
+client/
+
+components/ # React components
+
+hooks/ # Custom hooks
+
+services/ # API client functions
+
+pages/ # Page components
+
+A code example with 34 lines - see the article for details.
+
+Error Handling
+
+A code example with 9 lines - see the article for details.
+
+Database Queries
+
+Always use Prisma transactions for multi-step operations:
+
+A code example with 4 lines - see the article for details.
+
+Common Mistakes to Avoid
+
+Don’t use raw SQL when Prisma can handle it
+
+Don’t forget to handle the empty array case
+
+Don’t assume environment variables exist (validate at startup)
+
+Don’t create new files when existing ones should be extended
+
+`
+
+This file lives in my repo. When I start Claude Code in the project directory, it reads CLAUDE dot md and applies these standards to everything.
+
+Other Tools
+
+Different AI tools have different configuration methods:
+
+Cursor: Uses .cursorrules file in project root. Similar format to CLAUDE.md.
+
+ChatGPT: Uses “Custom Instructions” in settings. Limited to 1500 characters, so prioritize.
+
+GitHub Copilot: Can use .github slash copilot-instructions dot md for repository-level instructions.
+
+Aider: Uses .aider.conf dot yml for configuration.
+
+The syntax varies but the concept is the same. Define your standards once.
+
+What to Include
+
+Good agent configuration covers:
+
+1. Tech Stack Basics
+
+What language? What framework? What database? What testing framework?
+
+A code example with 5 lines - see the article for details.
+
+2. Project Structure
+
+Where do files go? What’s the naming convention?
+
+A code example with 4 lines - see the article for details.
+
+3. Patterns to Follow
+
+How should common things be done? Show examples.
+
+A code example with 7 lines - see the article for details.
+
+4. Things to Avoid
+
+What mistakes does this AI need to not make?
+
+A code example with 5 lines - see the article for details.
+
+5. File References
+
+What existing code should AI reference for patterns?
+
+A code example with 4 lines - see the article for details.
+
+Keep It Updated
+
+Your configuration isn’t static. Update it when:
+
+You adopt a new pattern
+
+You discover an AI mistake that keeps happening
+
+You add a new technology
+
+Team standards change
+
+I review mine weekly. Usually add one or two things based on that week’s AI sessions.
+
+Testing Your Configuration
+
+After setting up configuration, test that it works:
+
+A code example with 1 lines - see the article for details.
+
+Check:
+
+Did AI use TypeScript?
+
+Did it put the file in the right location?
+
+Did it follow your service layer pattern?
+
+Did it add error handling?
+
+Did it use your logging approach?
+
+If something’s missing, your configuration needs to be more explicit about that requirement.
+
+Configuration for Teams
+
+If your team uses AI, share the configuration file:
+
+Add CLAUDE dot md (or equivalent) to your repo
+
+Document it in your README
+
+Review and update as a team
+
+Now everyone’s AI sessions follow the same standards. Consistent code regardless of who generated it.
+
+Example: Before and After
+
+Before configuration:
+
+Me: “Create an endpoint to update user email”
+
+Claude generates JavaScript, no error handling, uses raw SQL, logs to console.
+
+After configuration:
+
+Me: “Create an endpoint to update user email”
+
+Claude generates TypeScript with strict types, adds try slash catch with telemetry logging, uses Prisma, follows service layer pattern, includes input validation.
+
+Same prompt. Dramatically different output. The configuration does the work.
+
+The Meta-Prompt
+
+You can even ask AI to help write your configuration:
+
+A code example with 13 lines - see the article for details.
+
+AI generates a starting point. You refine based on experience.
+
+What Doesn’t Belong in Configuration
+
+Keep configuration focused. Don’t include:
+
+Feature requirements (those go in GitHub Issues)
+
+One-time instructions (those go in prompts)
+
+Personal preferences that don’t affect code quality
+
+Things that change frequently
+
+Configuration is for stable, project-wide standards. Not session-specific context.
+
+The Payoff
+
+Setting up configuration takes 30 minutes. That 30 minutes saves you:
+
+2 minutes per conversation (no setup repetition)
+
+Debug time when AI forgets a standard
+
+Code review time catching missed patterns
+
+Frustration from inconsistent output
+
+Over a month of daily AI use, that’s hours saved. And better code.
+
+Tomorrow
+
+Your AI now knows your standards. But what about your specific coding patterns? The way you structure services. The way you handle errors. The nuances that make your codebase consistent.
+
+Tomorrow I’ll show you how to teach AI your patterns through examples. Reference your best code and AI will match it.
+
+Try This Today
+
+Create CLAUDE dot md (or your tool’s equivalent) in your project root
+
+Start with basics: tech stack, project structure, key patterns
+
+Add three “always do” and three “never do” rules
+
+Test with a simple prompt and verify AI follows your standards
+
+Commit the file to your repo
+
+You’ll immediately notice cleaner output. Less correction needed. More consistency.
+
+That’s the power of telling AI your standards once instead of every time.
+
+That's it for Day 10. Join us tomorrow for Day 11. Thanks for listening to 31 Days of Vibe Coding.

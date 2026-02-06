@@ -1,0 +1,132 @@
+Title: Day 25: Refactoring AI Code: From Working to Maintainable
+Day: 25
+Date: Jan 25, 2026
+Characters: 3372
+Words: 578
+==================================================
+
+Welcome to Day 25 of 31 Days of Vibe Coding. Today's topic is: Refactoring AI Code: From Working to Maintainable.
+
+The feature worked perfectly. The code was a mess.
+
+AI had generated 400 lines in a single file. Functions that did three things. Variables named data , result , temp . No comments explaining the non-obvious parts. It worked, but I dreaded having to modify it later.
+
+This is the AI code paradox. The faster you ship, the more you accumulate code that’s hard to maintain. AI optimizes for “make it work,” not “make it understandable.”
+
+But here’s the thing: AI is also good at refactoring. The same tool that created the mess can help clean it up. You just have to ask.
+
+The Code Smell Detection Prompt
+
+Start by identifying problems:
+
+A code example with 22 lines - see the article for details.
+
+The Incremental Refactoring Prompt
+
+Don’t refactor everything at once. Go step by step:
+
+A code example with 13 lines - see the article for details.
+
+The Function Extraction Prompt
+
+When functions do too much:
+
+A code example with 15 lines - see the article for details.
+
+A Real Refactoring Session
+
+Here’s code AI generated for handling a card trade:
+
+A code example with 43 lines - see the article for details.
+
+After refactoring:
+
+A code example with 74 lines - see the article for details.
+
+The refactored version is longer but:
+
+Each function has one job
+
+Functions are testable independently
+
+Error types are specific
+
+The flow is easy to follow
+
+Changes are isolated
+
+The Naming Improvement Prompt
+
+When names are unclear:
+
+A code example with 16 lines - see the article for details.
+
+The Duplication Elimination Prompt
+
+When you see patterns repeated:
+
+A code example with 14 lines - see the article for details.
+
+The Complexity Reduction Prompt
+
+When code is too nested:
+
+A code example with 12 lines - see the article for details.
+
+The Consistency Prompt
+
+When patterns are inconsistent:
+
+A code example with 15 lines - see the article for details.
+
+The Comments and Documentation Prompt
+
+When code needs explanation:
+
+A code example with 15 lines - see the article for details.
+
+Refactoring With Tests As Safety Net
+
+Always have tests before refactoring:
+
+A code example with 12 lines - see the article for details.
+
+The Boy Scout Rule
+
+Leave code better than you found it:
+
+A code example with 12 lines - see the article for details.
+
+When NOT to Refactor
+
+Refactoring isn’t always worth it:
+
+Code that’s about to be deleted : Don’t polish what’s leaving
+
+Code that never changes : If it works and you never touch it, leave it
+
+During an incident : Fix first, refactor later
+
+Without tests : Refactoring without tests is gambling
+
+Ask AI:
+
+A code example with 12 lines - see the article for details.
+
+Tomorrow
+
+Refactoring one service is straightforward. But what about features that span multiple services? Frontend, backend, database, external APIs. Tomorrow I’ll show you how to coordinate AI work across multiple services.
+
+Try This Today
+
+Find a piece of AI-generated code you’ve been avoiding
+
+Run the code smell detection prompt
+
+Pick one smell and fix it
+
+You don’t have to fix everything. Start with the worst part. Make it a little better. Repeat next time you’re in the file.
+
+Code quality is incremental. Perfect is the enemy of better.
+
+That's it for Day 25. Join us tomorrow for Day 26. Thanks for listening to 31 Days of Vibe Coding.

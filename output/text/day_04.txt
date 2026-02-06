@@ -1,0 +1,298 @@
+Title: Day 4: Observability First - Know When AI Code Breaks
+Day: 4
+Date: Jan 4, 2026
+Characters: 11497
+Words: 1715
+==================================================
+
+Welcome to Day 4 of 31 Days of Vibe Coding. Today's topic is: Observability First - Know When AI Code Breaks.
+
+Let’s be honest with each other.
+
+You’re reading a series about vibe coding. You’re here because you want to ship code faster with AI. And somewhere in the back of your mind, you’re telling yourself: “I’ll review every line of code the AI generates.”
+
+No you won’t.
+
+I don’t either. None of us do. We test it. We see it work. We ship it. Maybe we skim the code, maybe we spot-check a function or two, but we’re not doing a thorough code review of every line Claude writes for us. That’s not realistic when you’re moving fast.
+
+Here’s the thing: that’s not irresponsible. It’s only irresponsible if you have no way of knowing what that code is doing in production.
+
+That’s where observability comes in. It’s your safety net. It’s how you know what your AI-generated code is actually doing when real users hit it. It’s how you catch the problems you would have caught in code review, except now you catch them with data instead of eyeballs.
+
+The Real Problem
+
+AI writes optimistic code. It assumes everything works. Database calls succeed. Network requests complete. Users behave correctly. External APIs respond instantly.
+
+You test it locally. It works. You ship it.
+
+Then production happens. Database queries timeout under load. API calls fail intermittently. Users send malformed data. Edge cases you never considered start appearing. And you have no idea any of this is happening because you didn’t instrument anything.
+
+The code AI generated works fine in your development environment. It passes your tests. It looks good when you skim it. But you have no visibility into what it’s doing in production.
+
+Why AI Doesn’t Add Observability
+
+When you ask AI to build a feature, it focuses on the happy path. “Build user authentication” gets you login and registration. It doesn’t get you:
+
+Logging for failed login attempts
+
+Metrics for authentication success rates
+
+Traces showing how long password hashing takes
+
+Alerts when account lockout rates spike
+
+Database query performance monitoring
+
+You have to explicitly ask for observability. Otherwise AI gives you code that works but is invisible in production.
+
+The Solution
+
+Build observability into every prompt. Don’t ask for it afterwards. Include it in your GitHub Issue from the start.
+
+Here’s how I do it now. Every feature requirement includes an observability section:
+
+GitHub Issue Template:
+
+Showing a feature specification document outlining functional requirements for user authentication alongside detailed observability requirements for logging, metrics, tracing, and alerting.
+
+When observability is in the spec, AI includes it in the implementation plan. Not as an afterthought. As a first-class requirement.
+
+Real Example: Authentication API for collectyourcards dot com
+
+I needed to build complete authentication for collectyourcards.com. Registration, login, verification, password reset. The whole system.
+
+Here’s the GitHub Issue I wrote:
+
+Build authentication system with registration, email verification, login, and password reset.
+
+Functional requirements:
+
+User registration with email slash password
+
+Email verification before login allowed
+
+Login with JWT tokens (24 hour expiry)
+
+Account lockout after 5 failed attempts
+
+Password reset with time-limited tokens
+
+Observability requirements:
+
+Use OpenTelemetry for all instrumentation
+
+Log every auth event to both database and telemetry service
+
+Track metrics: auth success slash failure rates by event type
+
+Trace complete auth flows with timing
+
+Include: user ID, email, IP address, user agent, error messages
+
+Monitor database operations for auth queries
+
+Alert-worthy scenarios: lockout spikes, reset token abuse, slow queries
+
+AI gave me an implementation plan that included building a complete telemetry service first.
+
+Step 1: AI Built the Observability Foundation
+
+The first thing AI did was create a telemetry service using OpenTelemetry . This became the foundation for observing everything the auth system does.
+
+The service tracks three signal types:
+
+Traces - Show the flow of auth operations with timing:
+
+Showing a telemetry service call that tracks a successful login event with the user's ID, email, IP address, and browser user agent.
+
+Metrics - Quantify what’s happening:
+
+Showing code comments documenting that OpenTelemetry middleware auto-tracks metrics for auth events, API request duration, and database operation duration.
+
+Logs - Provide context when things break:
+
+Showing a telemetry service call that logs a password reset error with user ID, email, and error type metadata.
+
+Step 2: AI Instrumented Every Auth Event
+
+Every authentication action gets tracked automatically. Not just the happy path. Every path.
+
+Registration:
+
+Showing JavaScript function calls that log authentication events for registration success, validation failure, and duplicate email scenarios.
+
+Login:
+
+Showing authentication event logging calls for three scenarios: account locked, invalid password, and successful login.
+
+Password Reset:
+
+Showing three authentication logging calls that track password reset events: when requested, when a token fails validation, and when completed successfully.
+
+Every event goes to two places:
+
+Database - for permanent audit trail
+
+Telemetry service - for monitoring and alerting
+
+Step 3: AI Added Automatic Middleware
+
+The telemetry service includes Express middleware that automatically tracks every API call:
+
+Showing Express middleware setup for telemetry that automatically tracks request metrics like URL, response time, status codes, and user data.
+
+No manual tracking needed. Every request to /api slash auth/login gets timed and recorded automatically.
+
+Step 4: AI Monitored Database Operations
+
+Prisma middleware tracks every database query:
+
+Showing comments that document automatic database query tracking metrics including operation type, table name, duration, success status, and record count.
+
+This is where you catch the problems that would otherwise blindside you. Query times climbing from 12ms to 400ms over time? You’ll see the pattern before it becomes a production incident. Connection pool exhaustion? The metrics will show it happening gradually, not as a sudden outage.
+
+What This Gives You
+
+With proper instrumentation, you get visibility into code you didn’t manually review:
+
+Authentication Dashboard:
+
+Login success rate by hour
+
+Registration conversion rates
+
+Account lockouts and their causes
+
+Password reset patterns
+
+Average response times per endpoint
+
+When Something Breaks:
+
+Imagine a user reports: “I can’t log in.”
+
+Without observability, you’re guessing. Reading through code you didn’t write. Adding console dot log statements. Deploying debug builds. Hours of investigation.
+
+With observability, you check the dashboard:
+
+Last login attempt: 2 minutes ago
+
+Event: login_failed
+
+Reason: Account locked
+
+IP address: matches user’s location
+
+Failed attempts: 6 in the last 10 minutes
+
+User agent: Mobile Safari
+
+Response: “Your account was locked due to multiple failed login attempts. You can reset your password or wait 30 minutes for automatic unlock.”
+
+Total debugging time: 30 seconds.
+
+This is the trade. You didn’t review every line of the authentication code. But you instrumented it so you can see exactly what it’s doing. That’s a responsible way to ship fast.
+
+The Prompt Templates That Work
+
+Template 1: Adding Observability to a Feature Request
+
+Showing a prompt template that instructs an AI to build a feature with comprehensive observability, specifying requirements for OpenTelemetry instrumentation, logging, metrics, tracing, and alerting.
+
+Template 2: Auditing Existing Code for Missing Observability
+
+Showing a prompt template that asks an AI to audit code for observability gaps and suggest specific logging, metrics, tracing, and alerting improvements.
+
+Template 3: Building the Observability Foundation
+
+Showing a prompt template that instructs an AI to build a comprehensive telemetry service using OpenTelemetry with traces, metrics, logs, and environment-specific exporters.
+
+Development vs Production
+
+The telemetry service works differently in development vs production. This is important.
+
+Development mode (no credentials configured):
+
+Showing console output confirming OpenTelemetry initialization with traces, metrics, and logs all exporting to console in development mode.
+
+Everything prints to your terminal. You see every auth event, every API call, every metric. Perfect for debugging locally.
+
+Production mode (credentials configured):
+
+Showing console output confirming OpenTelemetry initialization with traces, metrics, and logs all exporting to Dynatrace.
+
+Everything goes to your observability platform. You get dashboards, alerts, query capabilities, long-term storage.
+
+Same code. Different behavior based on environment. AI built this automatically because I specified it in the requirements.
+
+Common Pitfalls
+
+Pitfall 1: Adding observability after the code is written
+
+I see developers build a feature, test it, then ask AI: “Add logging to this.”
+
+The result is inconsistent. Some errors logged, some not. Metrics halfway implemented. Traces missing timing data.
+
+Build observability into the initial prompt. It’s easier than retrofitting.
+
+Pitfall 2: Logging everything
+
+AI will happily log every function call if you ask it to. This creates noise that drowns out signal.
+
+Be specific about what matters:
+
+“Log authentication failures with reason and user context”
+
+“Track API response times for requests over 100ms”
+
+“Alert when database query time exceeds 500ms”
+
+Not: “Add comprehensive logging everywhere.”
+
+Pitfall 3: Not testing observability locally
+
+You won’t know if observability works until you need it in production. By then it’s too late.
+
+Test it locally:
+
+Trigger an error case
+
+Check that it logged with the right context
+
+Verify the metric incremented
+
+Confirm the trace captured timing
+
+If you can’t see it locally, it won’t work in production.
+
+Pitfall 4: Using console dot log instead of structured logging
+
+Showing a comparison between a basic console log and a structured telemetry call that captures detailed context like user ID, email, failure reason, and IP address.
+
+Structured logging lets you query, filter, and alert on specific fields. Console logs are just strings.
+
+Tomorrow
+
+You have observability. You can see what your AI-generated code is doing in production. But you’re still writing prompts from scratch every time.
+
+Tomorrow I’ll show you the prompting pattern that actually works: Context leads to Intent leads to Constraints leads to Examples leads to Verification.
+
+A structured approach that gets AI to generate exactly what you need, with all the observability, error handling, and edge cases included from the start.
+
+Try This Today
+
+Take a feature you’ve already built with AI and audit it for observability gaps.
+
+Pick one API endpoint or function
+
+Ask AI: “What observability is missing from this code? Check for logging, metrics, and tracing gaps.”
+
+For each gap, ask: “If this broke in production, would I know why?”
+
+Add instrumentation for the top 3 gaps
+
+Don’t try to instrument everything at once. Start with your most critical code path. Auth. Payment. Data import. Whatever breaks your app if it fails.
+
+Then make observability a requirement in every GitHub Issue you write.
+
+That's it for Day 4. Join us tomorrow for Day 5. Thanks for listening to 31 Days of Vibe Coding.

@@ -1,0 +1,294 @@
+Title: Day 31: Your Personal Vibe Coding Playbook
+Day: 31
+Date: Jan 31, 2026
+Characters: 5664
+Words: 877
+==================================================
+
+Welcome to Day 31 of 31 Days of Vibe Coding. Today's topic is: Your Personal Vibe Coding Playbook.
+
+You made it.
+
+Thirty-one days of tactics, prompts, and practices. That’s a lot. Too much to use all at once. Too much to remember without a system.
+
+Today we build your personal playbook. Not everything from this series. Just what works for you. A reference you’ll actually use. A foundation you’ll build on.
+
+What Goes in Your Playbook
+
+Your playbook is personal. Mine has:
+
+CLAUDE dot md - My agent configuration
+
+common-ai-mistakes dot md - Patterns AI gets wrong in my projects
+
+prompts/ - Templates for common tasks
+
+checklists/ - Pre-commit, pre-deploy, review checklists
+
+runbooks/ - What to do when things break
+
+Yours might be different. That’s the point. Take what works, leave what doesn’t.
+
+Building Your CLAUDE dot md
+
+Your agent configuration is the foundation. Here’s a template:
+
+A code example with 29 lines - see the article for details.
+
+Customize this for your project. Update it as you learn what AI needs to know.
+
+Your Prompt Library
+
+Start with these categories:
+
+Generation Prompts
+
+Feature implementation
+
+API endpoint
+
+Component
+
+Test suite
+
+Review Prompts
+
+Security review
+
+Performance review
+
+Maintainability review
+
+Debug Prompts
+
+Production issue
+
+Log analysis
+
+Stack trace analysis
+
+Maintenance Prompts
+
+Refactoring
+
+Documentation
+
+Debt inventory
+
+You don’t need dozens. Start with one prompt per category. Add more as you discover what you use repeatedly.
+
+Your Mistakes File
+
+Create common-ai-mistakes dot md and add to it:
+
+A code example with 8 lines - see the article for details.
+
+Start empty. Every time you correct AI twice for the same thing, add it.
+
+Your Checklists
+
+Pre-Commit Checklist
+
+A code example with 6 lines - see the article for details.
+
+Pre-Deploy Checklist
+
+A code example with 6 lines - see the article for details.
+
+Code Review Checklist
+
+A code example with 5 lines - see the article for details.
+
+Your Workflow
+
+Document your AI workflow:
+
+Feature Development
+
+Write GitHub issue with full context
+
+Review architecture with AI
+
+Define contracts slash interfaces
+
+Generate implementation
+
+Generate tests
+
+Run multi-pass review
+
+Refactor as needed
+
+Deploy with checklist
+
+Bug Fixing
+
+Gather symptoms and logs
+
+Hypothesis with AI
+
+Add logging if needed
+
+Test hypothesis
+
+Fix and test
+
+Add regression test
+
+Debugging
+
+Describe symptom to AI
+
+Get list of likely causes
+
+Check each systematically
+
+Confirm root cause
+
+Generate fix
+
+Verify fix
+
+Principles to Remember
+
+From this series, the principles that matter most:
+
+1. You’re the architect AI is your junior developer. You make the decisions. AI helps you implement them faster.
+
+2. Observability is non-negotiable When shipping fast, you need to know when things break. Logs, metrics, traces. Always.
+
+3. Context is everything Better prompts get better results. Include what AI needs to know. Structure your prompts.
+
+4. Trust but verify AI makes mistakes. Review output. Run tests. Check edge cases. Don’t assume it’s right.
+
+5. Small steps, frequent verification Break big features into phases. Verify each phase works before continuing.
+
+6. Document what you learn Add to your mistakes file. Update your prompts. Evolve your configuration. Learning compounds.
+
+The 30-Day Summary
+
+What we covered:
+
+Week 1: Foundation
+
+What vibe coding is (and isn’t)
+
+Using GitHub issues as context
+
+Component libraries for consistency
+
+Observability from the start
+
+The prompting pattern
+
+Breaking features into phases
+
+Context management
+
+Week 2: Tactics
+
+When to restart vs. continue
+
+Git as your undo button
+
+Agent configuration
+
+Teaching AI your patterns
+
+The mistakes file
+
+Constraining AI changes
+
+Spotting hallucinations
+
+Week 3: Expert Roles
+
+Context and tokens
+
+Security auditing
+
+Performance auditing
+
+Test generation
+
+Multi-pass code review
+
+Debugging with AI
+
+Architecture evaluation
+
+Week 4: Production and Mastery
+
+Production debugging
+
+Edge case generation
+
+Deployment automation
+
+Refactoring AI code
+
+Multi-service coordination
+
+Prompt libraries
+
+Tool landscape
+
+Measuring effectiveness
+
+Managing technical debt
+
+This playbook
+
+What’s Next
+
+The series is over. Your journey continues.
+
+Keep learning: AI tools evolve rapidly. What doesn’t work today might work next month. Stay curious.
+
+Keep measuring: Track whether AI helps. Adjust based on evidence.
+
+Keep sharing: When you find something that works, share it. The community benefits from collective learning.
+
+Keep shipping: The point isn’t to use AI. The point is to build things that matter. AI is just a tool. Use it when it helps. Skip it when it doesn’t.
+
+The Final Challenge
+
+Build something.
+
+Not a todo app. Not a tutorial project. Something real. Something you’ll use. Something you’ll show people.
+
+Use what you’ve learned:
+
+Plan with AI
+
+Generate with AI
+
+Review with AI
+
+Test with AI
+
+Deploy with your checklists
+
+Monitor with observability
+
+Ship it. Then tell me about it.
+
+Thank You
+
+If you’ve followed along for all 31 days, thank you. I hope you ship faster and with more confidence.
+
+Vibe coding isn’t about AI doing your work. It’s about you doing better work with AI’s help. Stay in flow. Trust your judgment. Keep the AI as your assistant, not your replacement.
+
+Now go build something.
+
+Your Playbook Checklist
+
+Before you close this series:
+
+A code example with 6 lines - see the article for details.
+
+You don’t need everything. You need something. Start there. Add more as you go.
+
+The best playbook is the one you’ll actually use.
+
+Congratulations! You've completed 31 Days of Vibe Coding. Thanks for listening to the entire series. Now go build something amazing with AI.
